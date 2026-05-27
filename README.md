@@ -1,17 +1,18 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
+<title>Observations — H774201001</title>
 <style>
   body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:20px}
-  table{border-collapse:collapse;width:100%;max-width:800px}
-  th,td{border:1px solid #dd;padding:8px;text-align:right}
+  table{border-collapse:collapse;width:100%;max-width:400px}
+  th,td{border:1px solid #ddd;padding:8px;text-align:right}
   th{background:#f3f3f3;text-align:left}
   caption{font-weight:600;margin-bottom:8px;text-align:left}
 </style>
 </head>
 <body>
-<table id="tbl"><caption>Observations</caption>
-<thead><tr><th>Date (UTC)</th><th>Débit (l/s)</th></tr></thead>
+<table id="tbl"><caption>Observations (dernier lot)</caption>
+<thead><tr><th>Date (UTC)</th><th>Heure (UTC)</th><th>Débit (l/s)</th></tr></thead>
 <tbody></tbody>
 </table>
 <script>
@@ -22,12 +23,14 @@ fetch(url)
     const tbody = document.querySelector("#tbl tbody");
     j.data.forEach(it=>{
       const tr=document.createElement("tr");
-      const d=new Date(it.date_obs).toISOString().replace("T"," ").replace("Z","");
-      tr.innerHTML=`<td style="text-align:left">${d}</td><td>${it.resultat_obs ?? "—"}</td><td style="text-align:center"></td>`;
+      const dateTimeStr = new Date(it.date_obs).toISOString().replace("Z", ""); // Remove Z at the end
+      const [date_part, time_part_with_ms] = dateTimeStr.split("T");
+      const time_part = time_part_with_ms.split(".")[0]; // Remove milliseconds
+      tr.innerHTML=`<td style="text-align:left">${date_part}</td><td style="text-align:left">${time_part}</td><td>${it.resultat_obs ?? "—"}</td>`;
       tbody.appendChild(tr);
     });
   })
-  .catch(e=>{ document.querySelector("tbody").innerHTML=`<tr><td colspan="2">Erreur: ${e.message}</td></tr>` });
+  .catch(e=>{ document.querySelector("tbody").innerHTML=`<tr><td colspan="3">Erreur: ${e.message}</td></tr>` });
 </script>
 </body>
 </html>
