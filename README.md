@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <style>
   body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:20px}
-  table{border-collapse:collapse;width:100%;max-width:400px}
+  table{border-collapse:collapse;width:100%;max-width:800px}
   th,td{border:1px solid #dd;padding:8px;text-align:right}
   th{background:#f3f3f3;text-align:left}
   caption{font-weight:600;margin-bottom:8px;text-align:left}
