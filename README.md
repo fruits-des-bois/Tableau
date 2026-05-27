@@ -1,17 +1,16 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<title>Observations — H774201001</title>
 <style>
   body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:20px}
-  table{border-collapse:collapse;width:100%;max-width:300px}
-  th,td{border:1px solid #ddd;padding:8px;text-align:right}
+  table{border-collapse:collapse;width:100%;max-width:400px}
+  th,td{border:1px solid #dd;padding:8px;text-align:right}
   th{background:#f3f3f3;text-align:left}
   caption{font-weight:600;margin-bottom:8px;text-align:left}
 </style>
 </head>
 <body>
-<table id="tbl"><caption>Observations (dernier lot)</caption>
+<table id="tbl"><caption>Observations</caption>
 <thead><tr><th>Date (UTC)</th><th>Débit (l/s)</th></tr></thead>
 <tbody></tbody>
 </table>
