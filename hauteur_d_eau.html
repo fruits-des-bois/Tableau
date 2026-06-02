@@ -1,0 +1,104 @@
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+
+<style>
+  body{
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+    margin:20px;
+  }
+
+  table{
+    border-collapse:collapse;
+    width:100%;
+    max-width:500px;
+  }
+
+  th,td{
+    border:1px solid #ddd;
+    padding:8px;
+  }
+
+  th{
+    background:#f3f3f3;
+    text-align:left;
+  }
+
+  td.num{
+    text-align:right;
+  }
+
+  td.txt{
+    text-align:left;
+  }
+</style>
+</head>
+
+<body>
+
+<table id="tbl">
+
+<thead>
+<tr>
+  <th>Date (UTC)</th>
+  <th>Heure (UTC)</th>
+  <th>Hauteur (m)</th>
+</tr>
+</thead>
+
+<tbody></tbody>
+
+</table>
+
+<script>
+
+const url =
+"https://hubeau.eaufrance.fr/api/v2/hydrometrie/observations_tr?code_entite=H774201001&size=5&pretty&grandeur_hydro=H&fields=date_obs,resultat_obs,continuite_obs_hydro";
+
+fetch(url)
+
+  .then(r => r.json())
+
+  .then(j => {
+
+    const tbody = document.querySelector("#tbl tbody");
+
+    j.data.forEach(it => {
+
+      const tr = document.createElement("tr");
+
+      const dt = new Date(it.date_obs);
+
+      const date_part = dt.toISOString().split("T")[0];
+
+      const time_part = dt.toISOString().split("T")[1].split(".")[0];
+
+      // Conversion mm -> m
+      const hauteur_m =
+        it.resultat_obs != null
+          ? (it.resultat_obs / 1000).toFixed(2)
+          : "—";
+
+      tr.innerHTML = `
+        <td class="txt">${date_part}</td>
+        <td class="txt">${time_part}</td>
+        <td class="num">${hauteur_m}</td>
+      `;
+
+      tbody.appendChild(tr);
+
+    });
+
+  })
+
+  .catch(e => {
+
+    document.querySelector("#tbl tbody").innerHTML =
+      `<tr><td colspan="3">Erreur : ${e.message}</td></tr>`;
+
+  });
+
+</script>
+
+</body>
+</html>
