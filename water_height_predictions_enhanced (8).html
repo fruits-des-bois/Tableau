@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prédictions de Hauteur d'Eau Améliorées</title>
+<script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  height: 100%;
+}
+html {
+  height: 100%;
+}
+#waterHeightPlot {
+  width: 100%;
+  height: 100vh;
+  border: none;
+  box-shadow: none;
+  background-color: white;
+}
+</style>
+</head>
+<body>
+    <div id="waterHeightPlot"></div>
+    <!-- Embed JSON data in a script tag with type="application/json" -->
+    <script type="application/json" id="predictions-data">
+        [{"ObservationDate": "2026-06-04 11:00:00", "Water_Height_Predicted_mm": 646.8436889648438}, {"ObservationDate": "2026-06-04 12:00:00", "Water_Height_Predicted_mm": 646.340576171875}, {"ObservationDate": "2026-06-04 13:00:00", "Water_Height_Predicted_mm": 645.6394653320312}, {"ObservationDate": "2026-06-04 14:00:00", "Water_Height_Predicted_mm": 645.8109741210938}, {"ObservationDate": "2026-06-04 15:00:00", "Water_Height_Predicted_mm": 646.2452392578125}, {"ObservationDate": "2026-06-04 16:00:00", "Water_Height_Predicted_mm": 646.2343139648438}, {"ObservationDate": "2026-06-04 17:00:00", "Water_Height_Predicted_mm": 646.2582397460938}, {"ObservationDate": "2026-06-04 18:00:00", "Water_Height_Predicted_mm": 646.5284423828125}, {"ObservationDate": "2026-06-04 19:00:00", "Water_Height_Predicted_mm": 646.653076171875}, {"ObservationDate": "2026-06-04 20:00:00", "Water_Height_Predicted_mm": 645.5214233398438}, {"ObservationDate": "2026-06-04 21:00:00", "Water_Height_Predicted_mm": 641.411376953125}, {"ObservationDate": "2026-06-04 22:00:00", "Water_Height_Predicted_mm": 640.0256958007812}, {"ObservationDate": "2026-06-04 23:00:00", "Water_Height_Predicted_mm": 639.3518676757812}, {"ObservationDate": "2026-06-05 00:00:00", "Water_Height_Predicted_mm": 640.9716186523438}, {"ObservationDate": "2026-06-05 01:00:00", "Water_Height_Predicted_mm": 642.487060546875}, {"ObservationDate": "2026-06-05 02:00:00", "Water_Height_Predicted_mm": 644.752685546875}, {"ObservationDate": "2026-06-05 03:00:00", "Water_Height_Predicted_mm": 645.5546875}, {"ObservationDate": "2026-06-05 04:00:00", "Water_Height_Predicted_mm": 646.7422485351562}, {"ObservationDate": "2026-06-05 05:00:00", "Water_Height_Predicted_mm": 647.8751831054688}, {"ObservationDate": "2026-06-05 06:00:00", "Water_Height_Predicted_mm": 648.0626220703125}, {"ObservationDate": "2026-06-05 07:00:00", "Water_Height_Predicted_mm": 648.8453369140625}, {"ObservationDate": "2026-06-05 08:00:00", "Water_Height_Predicted_mm": 648.4361572265625}, {"ObservationDate": "2026-06-05 09:00:00", "Water_Height_Predicted_mm": 647.4769897460938}, {"ObservationDate": "2026-06-05 10:00:00", "Water_Height_Predicted_mm": 646.421142578125}, {"ObservationDate": "2026-06-05 11:00:00", "Water_Height_Predicted_mm": 646.1454467773438}, {"ObservationDate": "2026-06-05 12:00:00", "Water_Height_Predicted_mm": 645.7241821289062}, {"ObservationDate": "2026-06-05 13:00:00", "Water_Height_Predicted_mm": 645.5409545898438}, {"ObservationDate": "2026-06-05 14:00:00", "Water_Height_Predicted_mm": 645.6718139648438}, {"ObservationDate": "2026-06-05 15:00:00", "Water_Height_Predicted_mm": 645.5510864257812}, {"ObservationDate": "2026-06-05 16:00:00", "Water_Height_Predicted_mm": 645.24462890625}, {"ObservationDate": "2026-06-05 17:00:00", "Water_Height_Predicted_mm": 645.2685546875}, {"ObservationDate": "2026-06-05 18:00:00", "Water_Height_Predicted_mm": 645.9083251953125}, {"ObservationDate": "2026-06-05 19:00:00", "Water_Height_Predicted_mm": 646.5642700195312}, {"ObservationDate": "2026-06-05 20:00:00", "Water_Height_Predicted_mm": 646.1353759765625}, {"ObservationDate": "2026-06-05 21:00:00", "Water_Height_Predicted_mm": 642.68212890625}, {"ObservationDate": "2026-06-05 22:00:00", "Water_Height_Predicted_mm": 641.822998046875}, {"ObservationDate": "2026-06-05 23:00:00", "Water_Height_Predicted_mm": 641.226806640625}, {"ObservationDate": "2026-06-06 00:00:00", "Water_Height_Predicted_mm": 641.0845336914062}, {"ObservationDate": "2026-06-06 01:00:00", "Water_Height_Predicted_mm": 643.0584716796875}, {"ObservationDate": "2026-06-06 02:00:00", "Water_Height_Predicted_mm": 644.9706420898438}, {"ObservationDate": "2026-06-06 03:00:00", "Water_Height_Predicted_mm": 645.6368408203125}, {"ObservationDate": "2026-06-06 04:00:00", "Water_Height_Predicted_mm": 646.7606201171875}, {"ObservationDate": "2026-06-06 05:00:00", "Water_Height_Predicted_mm": 647.725830078125}, {"ObservationDate": "2026-06-06 06:00:00", "Water_Height_Predicted_mm": 647.9132690429688}, {"ObservationDate": "2026-06-06 07:00:00", "Water_Height_Predicted_mm": 648.8885498046875}, {"ObservationDate": "2026-06-06 08:00:00", "Water_Height_Predicted_mm": 648.4793701171875}, {"ObservationDate": "2026-06-06 09:00:00", "Water_Height_Predicted_mm": 647.5202026367188}, {"ObservationDate": "2026-06-06 10:00:00", "Water_Height_Predicted_mm": 647.502197265625}, {"ObservationDate": "2026-06-06 11:00:00", "Water_Height_Predicted_mm": 647.3152465820312}, {"ObservationDate": "2026-06-06 12:00:00", "Water_Height_Predicted_mm": 646.4740600585938}, {"ObservationDate": "2026-06-06 13:00:00", "Water_Height_Predicted_mm": 646.1406860351562}, {"ObservationDate": "2026-06-06 14:00:00", "Water_Height_Predicted_mm": 646.9639892578125}, {"ObservationDate": "2026-06-06 15:00:00", "Water_Height_Predicted_mm": 646.9788818359375}, {"ObservationDate": "2026-06-06 16:00:00", "Water_Height_Predicted_mm": 647.040283203125}, {"ObservationDate": "2026-06-06 17:00:00", "Water_Height_Predicted_mm": 646.5794677734375}, {"ObservationDate": "2026-06-06 18:00:00", "Water_Height_Predicted_mm": 646.0169067382812}, {"ObservationDate": "2026-06-06 19:00:00", "Water_Height_Predicted_mm": 646.38525390625}, {"ObservationDate": "2026-06-06 20:00:00", "Water_Height_Predicted_mm": 645.9563598632812}, {"ObservationDate": "2026-06-06 21:00:00", "Water_Height_Predicted_mm": 642.996337890625}, {"ObservationDate": "2026-06-06 22:00:00", "Water_Height_Predicted_mm": 641.9711303710938}, {"ObservationDate": "2026-06-06 23:00:00", "Water_Height_Predicted_mm": 641.140869140625}, {"ObservationDate": "2026-06-07 00:00:00", "Water_Height_Predicted_mm": 644.067138671875}, {"ObservationDate": "2026-06-07 01:00:00", "Water_Height_Predicted_mm": 644.6572875976562}, {"ObservationDate": "2026-06-07 02:00:00", "Water_Height_Predicted_mm": 644.7796630859375}, {"ObservationDate": "2026-06-07 03:00:00", "Water_Height_Predicted_mm": 645.033447265625}, {"ObservationDate": "2026-06-07 04:00:00", "Water_Height_Predicted_mm": 646.0545654296875}, {"ObservationDate": "2026-06-07 05:00:00", "Water_Height_Predicted_mm": 646.895751953125}, {"ObservationDate": "2026-06-07 06:00:00", "Water_Height_Predicted_mm": 646.8349609375}, {"ObservationDate": "2026-06-07 07:00:00", "Water_Height_Predicted_mm": 647.8349609375}, {"ObservationDate": "2026-06-07 08:00:00", "Water_Height_Predicted_mm": 647.42578125}, {"ObservationDate": "2026-06-07 09:00:00", "Water_Height_Predicted_mm": 646.7283325195312}, {"ObservationDate": "2026-06-07 10:00:00", "Water_Height_Predicted_mm": 647.0272827148438}]
+    </script>
+    <script>
+        console.log("Plotly embedded script started for enhanced predictions.");
+        var predictionsJsonString = document.getElementById('predictions-data').textContent;
+        var embeddedPredictionsData = JSON.parse(predictionsJsonString);
+
+        console.log("embeddedPredictionsData (after JSON.parse):");
+        console.log(embeddedPredictionsData);
+
+        var plotData = [];
+
+        var tracePredictions = {
+            x: embeddedPredictionsData.map(d => d.ObservationDate),
+            y: embeddedPredictionsData.map(d => d.Water_Height_Predicted_mm),
+            mode: 'lines+markers',
+            name: "Prédiction Future (Améliorée)",
+            line: { "color": "green" },
+            marker: { "size": 4 }
+        };
+        plotData.push(tracePredictions);
+
+        var layout = {
+            "title": "<b>Prévisions de hauteur d'Eau (Améliorées avec débit et précipitations)</b>",
+            "xaxis": { "title": "Date et Heure (UTC)", "type": "date" },
+            "yaxis": { "title": "Hauteur d'eau (mm)" },
+            "hovermode": "closest",
+            "showlegend": true
+        };
+
+        try {
+            Plotly.newPlot('waterHeightPlot', plotData, layout);
+            console.log("Plotly.newPlot executed successfully for embedded enhanced predictions.");
+        } catch (e) {
+            console.error("Error rendering embedded Plotly chart for enhanced predictions:", e);
+        }
+    </script>
+</body>
+</html>
