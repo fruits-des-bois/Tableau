@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prédictions de Hauteur d'Eau Améliorées</title>
+<title>Prévisions de hauteur d'eau</title>
 <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
 <style>
 body {
@@ -47,14 +47,14 @@ html {
             x: embeddedPredictionsData.map(d => d.ObservationDate),
             y: embeddedPredictionsData.map(d => d.Water_Height_Predicted_mm),
             mode: 'lines+markers',
-            name: "Prédiction Future (Améliorée)",
+            name: "Prévisions futures",
             line: { "color": "green" },
             marker: { "size": 4 }
         };
         plotData.push(tracePredictions);
 
         var layout = {
-            "title": "<b>Prévisions de hauteur d'Eau (Améliorées avec débit et précipitations)</b>",
+            "title": "<b>Prévisions de hauteur d'eau </b>",
             "xaxis": { "title": "Date et Heure (UTC)", "type": "date" },
             "yaxis": { "title": "Hauteur d'eau (mm)" },
             "hovermode": "closest",
