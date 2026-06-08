@@ -194,60 +194,42 @@ url = (
     "&timezone=Europe/Paris"
 )
 
-r = requests.get(url)
+r = requests.get(url, timeout=10)
 
-if r.status_code != 200:
-    st.error(f"Erreur HTTP : {r.status_code}")
-    st.write(r.text)
-    st.stop()
-
-data = r.json()
-
-if "hourly" not in data:
-    st.error("La clé 'hourly' est absente de la réponse Open-Meteo.")
-    st.write(data)  # Affiche la réponse complète pour le diagnostic
-    st.stop()
-
-times = pd.to_datetime(data["hourly"]["time"])
-rain = data["hourly"]["precipitation"]
-
-df = pd.DataFrame({
-    "datetime": times,
-    "precipitation_mm": rain
-})
-
-now = pd.Timestamp.now()
-end = now + pd.Timedelta(days=4)
-
-df = df[(df["datetime"] >= now) & (df["datetime"] <= end)]
-
-df["label"] = df["datetime"].dt.strftime("%d/%m - %Hh")
-
-fig_rain = go.Figure()
-
-fig_rain.add_trace(
-    go.Bar(
-        x=df["datetime"],
-        y=df["precipitation_mm"],
-        name="Précipitations"
+if r.status_code == 429:
+    st.warning(
+        "⚠️ La limite quotidienne de l'API Open-Meteo a été atteinte. "
+        "Les prévisions de précipitations ne sont pas disponibles pour le moment."
     )
-)
+else:
+    r.raise_for_status()
 
-fig_rain.update_layout(
-    height=450,
-    title="Prévisions de précipitations sur 4 jours",
-    xaxis_title="Date - Heure",
-    yaxis_title="Précipitations (mm)",
-    hovermode="x unified"
-)
+    weather_data = r.json()
 
-fig_rain.update_xaxes(
-    dtick=6 * 60 * 60 * 1000,  # 6 heures en millisecondes
-    tickformat="%d/%m\n%Hh",
-    tickangle=0
-)
+    times = pd.to_datetime(weather_data["hourly"]["time"])
+    rain = weather_data["hourly"]["precipitation"]
 
-st.plotly_chart(fig_rain, use_container_width=True)
+    df = pd.DataFrame({
+        "datetime": times,
+        "precipitation_mm": rain
+    })
+
+    now = pd.Timestamp.now()
+    end = now + pd.Timedelta(days=4)
+
+    df = df[(df["datetime"] >= now) & (df["datetime"] <= end)]
+
+    fig_rain = go.Figure()
+
+    fig_rain.add_trace(
+        go.Bar(
+            x=df["datetime"],
+            y=df["precipitation_mm"],
+            name="Précipitations"
+        )
+    )
+
+    st.plotly_chart(fig_rain, use_container_width=True)
 # =========================
 # FORECAST LOCAL
 # =========================
