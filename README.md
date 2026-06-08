@@ -1,36 +1,6 @@
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<title>Observations — H774201001</title>
-<style>
-  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:20px}
-  table{border-collapse:collapse;width:100%;max-width:400px}
-  th,td{border:1px solid #ddd;padding:8px;text-align:right}
-  th{background:#f3f3f3;text-align:left}
-  caption{font-weight:600;margin-bottom:8px;text-align:left}
-</style>
-</head>
-<body>
-<table id="tbl">
-<thead><tr><th>Date (UTC)</th><th>Heure (UTC)</th><th>Débit (l/s)</th></tr></thead>
-<tbody></tbody>
-</table>
-<script>
-const url = "https://hubeau.eaufrance.fr/api/v2/hydrometrie/observations_tr?code_entite=H774201001&size=5&pretty&grandeur_hydro=Q&fields=date_obs,resultat_obs,continuite_obs_hydro";
-fetch(url)
-  .then(r=>r.json())
-  .then(j=>{
-    const tbody = document.querySelector("#tbl tbody");
-    j.data.forEach(it=>{
-      const tr=document.createElement("tr");
-      const dateTimeStr = new Date(it.date_obs).toISOString().replace("Z", ""); // Remove Z at the end
-      const [date_part, time_part_with_ms] = dateTimeStr.split("T");
-      const time_part = time_part_with_ms.split(".")[0]; // Remove milliseconds
-      tr.innerHTML=`<td style="text-align:left">${date_part}</td><td style="text-align:left">${time_part}</td><td>${it.resultat_obs ?? "—"}</td>`;
-      tbody.appendChild(tr);
-    });
-  })
-  .catch(e=>{ document.querySelector("tbody").innerHTML=`<tr><td colspan="3">Erreur: ${e.message}</td></tr>` });
-</script>
-</body>
-</html>
+Fichiers Python
+Requis pour lancer le dashboard streamlit
+Étapes à suivre : 
+1 : py fetch_data.py
+2 : py train_xgboost.py
+3 : py -m streamlit run app_streamlit.py
