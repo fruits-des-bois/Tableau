@@ -1,9 +1,9 @@
 ````markdown
-# 📊 Projet Streamlit
+📊 Projet Streamlit
 
-Une application web développée avec **Python** et **Streamlit** offrant une interface interactive pour visualiser et traiter des données.
+Une application web développée en Python offrant une interface interactive pour visualiser et traiter des données, sur un Dashboard Streamlit.
 
-## 🚀 Fonctionnalités
+🚀 Fonctionnalités
 
 - Interface utilisateur intuitive
 - Visualisation interactive des données
@@ -11,22 +11,25 @@ Une application web développée avec **Python** et **Streamlit** offrant une in
 - Exécution directement dans le navigateur
 - Développée entièrement avec Python et Streamlit
 
-## 📂 Structure du projet
-
-```text
+📂 Structure du projet
 .
-├── app_streamlit.py      # Application principale
-├── requirements.txt      # Dépendances Python
-├── README.md             # Documentation
-└── assets/               # Ressources (optionnel)
+├── app_streamlit.py      # Application principale - Dashboard
+├── fetch_data.py         # Récupère les données de Hub'Eau
+├── train_xgboost.py      # Entraîne le modèle xgboost sur les donnnées      
 ````
 
-## 🛠️ Prérequis
+ 🛠️ Prérequis
 
 * Python 3.10 ou supérieur
 * pip
+Bibliothèques :
+* Streamlit
+* Pandas
+* NumPy
+* Matplotlib
+* Plotly
 
-## 📥 Installation
+ 📥 Installation
 
 Clonez le dépôt :
 
@@ -35,13 +38,7 @@ git clone https://github.com/votre-utilisateur/votre-projet.git
 cd votre-projet
 ```
 
-Installez les dépendances :
-
-```bash
-pip install -r requirements.txt
-```
-
-## ▶️ Exécution
+ ▶️ Exécution
 
 Lancez l'application avec :
 
@@ -61,29 +58,8 @@ Par défaut, l'application sera disponible à l'adresse :
 http://localhost:8501
 ```
 
-## 📦 Dépendances principales
+ 🤝 Contribution
 
-* Streamlit
-* Pandas
-* NumPy
-* Matplotlib
-* Plotly
+Moi ! et beaucoup de monde (j'ai pas tous les noms en tête)
 
-## 📸 Capture d'écran
-
-Ajoutez une image dans votre dépôt puis utilisez :
-
-```markdown
-![Aperçu de l'application](assets/screenshot.png)
-```
-
-## 🤝 Contribution
-
-Les contributions sont les bienvenues. N'hésitez pas à créer une *issue* ou une *pull request*.
-
-## 📄 Licence
-
-Ce projet est distribué sous licence MIT.
-
-```
-```
+ 📄 Licence libre
