@@ -195,7 +195,18 @@ url = (
 )
 
 r = requests.get(url)
+
+if r.status_code != 200:
+    st.error(f"Erreur HTTP : {r.status_code}")
+    st.write(r.text)
+    st.stop()
+
 data = r.json()
+
+if "hourly" not in data:
+    st.error("La clé 'hourly' est absente de la réponse Open-Meteo.")
+    st.write(data)  # Affiche la réponse complète pour le diagnostic
+    st.stop()
 
 times = pd.to_datetime(data["hourly"]["time"])
 rain = data["hourly"]["precipitation"]
