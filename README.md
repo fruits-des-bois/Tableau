@@ -11,8 +11,9 @@ https://fruits-des-bois.github.io/Tableau/hauteur_d_eau.html
 ├── previsions_3j.html       # Prévisions des pluies sur les 3 prochains jours
 ├── hauteur_d_eau.html       # 5 dernières mesures d'hauteur d'eau (m)
 ├── debit_d_eau.html         # 5 dernières mesures de débit (l/s)
-└── README.md                # Documenntation (partielle)
+└── README.md                # Documentation (partielle)
 ````
+*debit et hauteur sont sous forme de tableau, previsions est sous fforme d'un graphique en barres.
 
  🛠️ Prérequis
 
