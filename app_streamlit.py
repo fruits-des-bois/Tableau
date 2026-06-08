@@ -194,46 +194,52 @@ url = (
     "&timezone=Europe/Paris"
 )
 
-r = requests.get(url, timeout=10)
+r = requests.get(url)
+data = r.json()
 
-if r.status_code == 429:
-    st.warning(
-        "⚠️ La limite quotidienne de l'API Open-Meteo a été atteinte. "
-        "Les prévisions de précipitations ne sont pas disponibles pour le moment."
+times = pd.to_datetime(data["hourly"]["time"])
+rain = data["hourly"]["precipitation"]
+
+df = pd.DataFrame({
+    "datetime": times,
+    "precipitation_mm": rain
+})
+
+now = pd.Timestamp.now()
+end = now + pd.Timedelta(days=4)
+
+df = df[(df["datetime"] >= now) & (df["datetime"] <= end)]
+
+df["label"] = df["datetime"].dt.strftime("%d/%m - %Hh")
+
+fig_rain = go.Figure()
+
+fig_rain.add_trace(
+    go.Bar(
+        x=df["datetime"],
+        y=df["precipitation_mm"],
+        name="Précipitations"
     )
-else:
-    r.raise_for_status()
+)
 
-    weather_data = r.json()
+fig_rain.update_layout(
+    width=800,
+    height=450,
+    xaxis_title="Date - Heure",
+    yaxis_title="Précipitations (mm)",
+    hovermode="x unified"
+)
 
-    times = pd.to_datetime(weather_data["hourly"]["time"])
-    rain = weather_data["hourly"]["precipitation"]
+fig_rain.update_xaxes(
+    dtick=6 * 60 * 60 * 1000,  # 6 heures en millisecondes
+    tickformat="%d/%m\n%Hh",
+    tickangle=0
+)
 
-    df = pd.DataFrame({
-        "datetime": times,
-        "precipitation_mm": rain
-    })
 
-    now = pd.Timestamp.now()
-    end = now + pd.Timedelta(days=4)
-
-    df = df[(df["datetime"] >= now) & (df["datetime"] <= end)]
-
-    fig_rain = go.Figure()
-
-    fig_rain.add_trace(
-        go.Bar(
-            x=df["datetime"],
-            y=df["precipitation_mm"],
-            name="Précipitations"
-        )
-    )
-
-    st.plotly_chart(fig_rain, use_container_width=True)
 # =========================
 # FORECAST LOCAL
 # =========================
-st.subheader("📈 Prévisions hauteur d'eau")
 
 try:
     with open("forecast.json", "r", encoding="utf-8") as f:
@@ -252,12 +258,26 @@ try:
     ))
 
     fig2.update_layout(
+        width=800,
         height=500,
         xaxis_title="Temps",
         yaxis_title="Hauteur d'eau (mm)"
     )
 
-    st.plotly_chart(fig2, use_container_width=True)
+
 
 except FileNotFoundError:
     st.error("forecast.json introuvable. Lance d'abord ton script de génération.")
+
+# =========================
+# GRAPHIQUES CÔTE À CÔTE
+# =========================
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.plotly_chart(fig_rain, use_container_width=False)
+
+with col2:
+    st.subheader("📈 Prévisions de hauteur d'eau")
+    st.plotly_chart(fig2, use_container_width=False)
