@@ -83,7 +83,7 @@ fetch(url)
       // Conversion mm -> m
       const hauteur_m =
         it.resultat_obs != null
-          ? (it.resultat_obs / 1000).toFixed(2)
+          ? (it.resultat_obs / 1000).toFixed(3)
           : "—";
 
       tr.innerHTML = `
