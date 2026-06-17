@@ -5,15 +5,17 @@ C'est la partie plus "dortoir" sans particuluarités spécifiques. Le principal 
 https://fruits-des-bois.github.io/Tableau/previsions_3j.html
 https://fruits-des-bois.github.io/Tableau/debit_d_eau.html
 https://fruits-des-bois.github.io/Tableau/hauteur_d_eau.html
+https://fruits-des-bois.github.io/Tableau/carte_beauvais.html
 
  📂 Structure de la branche
 .
 ├── previsions_3j.html       # Prévisions des pluies sur les 3 prochains jours
 ├── hauteur_d_eau.html       # 5 dernières mesures d'hauteur d'eau (m)
-├── debit_d_eau.html         # 5 dernières mesures de débit (l/s)
+├── debit_d_eau.html         # 5 dernières mesures d'hauteur d'eau (m)
+├── carte_beauvais.html      # Carte de Beauvais avec la station météo, la station hydrométrique et les limites de Beauvais 
 └── README.md                # Documentation (partielle)
 ````
-*debit et hauteur sont sous forme de tableau, previsions est sous fforme d'un graphique en barres.
+*debit et hauteur sont sous forme de tableau, previsions est sous forme d'un graphique en barres.
 
  🛠️ Prérequis
 
