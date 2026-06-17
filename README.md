@@ -11,7 +11,7 @@ Une application web développée en Python offrant une interface interactive pou
 - Exécution directement dans le navigateur
 - Développée entièrement avec Python et Streamlit
 
-📂 Structure du projet
+📂 Structure du projet (c'est le chantier, pas à jour)
 .
 ├── app_streamlit.py      # Application principale - Dashboard
 ├── fetch_data.py         # Récupère les données de Hub'Eau
