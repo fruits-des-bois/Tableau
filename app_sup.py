@@ -310,6 +310,11 @@ def fetch_data():
     historical_data.loc[:, "Hauteur_t-24"] = historical_data["Hauteur d'eau (mm)"].shift(24)
     historical_data.loc[:, "Débit_t-1"] = historical_data["Débit (l/s)"].shift(1)
     historical_data.loc[:, "Débit_t-6"] = historical_data["Débit (l/s)"].shift(6)
+    # Pareil pour la pluie retardée historique
+    historical_data["Pluie_lag_3h"] = historical_data["Precipitation (mm)"].shift(3)
+    historical_data["Pluie_lag_6h"] = historical_data["Precipitation (mm)"].shift(6)
+    historical_data["Pluie_lag_12h"] = historical_data["Precipitation (mm)"].shift(12)
+
 
     # Introduction des pluies cumulées : 6h et 24h
     historical_data.loc[:, "Pluie_6h"] = (
@@ -321,6 +326,17 @@ def fetch_data():
         historical_data["Precipitation (mm)"]
         .rolling(24)
         .sum()
+    )
+    # variable hydro  : décale la pluie de 3 heures, cumule sur 6 heures. Donc impact plus lent de la pluie
+    historical_data["Pluie_cum_shifted"] = (
+    historical_data["Precipitation (mm)"].shift(3).rolling(6).sum()
+    )
+    # Interaction pui- débit
+    historical_data.loc[:, "Impact_pluie"] = (
+    historical_data["Precipitation (mm)"] * historical_data["Débit (l/s)"]
+    )
+    # amplifie l'impact de la pluie (*1.5)
+    historical_data.loc[:, "Pluie_effective"] = np.log1p(historical_data["Precipitation (mm)"]
     )
     # Introduction et définition de la variable crue
     historical_data.loc[:, "Crue"] = (
@@ -346,6 +362,12 @@ def fetch_data():
     sample_weights = np.where(
         historical_data["Hauteur d'eau (mm)"] > 200,
         5,
+        1
+    )
+    # Attribue un poids plus lourd aux pluies
+    sample_weights = np.where(
+        historical_data["Precipitation (mm)"] > 2,
+        3,
         1
     )
 
@@ -455,6 +477,14 @@ def fetch_data():
         df_future_enhanced["Precipitation (mm)"].rolling(24, min_periods=1).sum()
     )
 
+    # Interaction pui- débit
+    df_future_enhanced.loc[:, "Impact_pluie"] = (
+    df_future_enhanced["Precipitation (mm)"] * df_future_enhanced["Débit (l/s)"]
+    )
+    # amplifie l'impact de la pluie (*1.5)
+    df_future_enhanced.loc[:, "Pluie_effective"] = (
+    df_future_enhanced["Precipitation (mm)"] ** 10
+    )
     # Sélection des variables du modèle
     # On garde les colonnes utiilisées lors de l'entraînement
     X_future_enhanced = df_future_enhanced[features_new]
