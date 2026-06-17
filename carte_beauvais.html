@@ -43,11 +43,40 @@
                 left:0;
                 }
             </style>
+            <style> 
+                .north-arrow {
+                    position: absolute;
+                    top: 15px;
+                    left: 15px;
+                    z-index: 9999;
+                    background: white;
+                    padding: 6px 10px;
+                    border-radius: 6px;
+                    font-weight: bold;
+                    font-size: 20px;
+                    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+                            }
+            </style>
+            <style>
+                .legend {
+                    position: absolute;
+                    bottom: 20px;
+                    left: 20px;
+                    z-index: 9999;
+                    background: white;
+                    padding: 10px 12px;
+                    border-radius: 8px;
+                    box-shadow: 0 0 6px rgba(0,0,0,0.25);
+                    font-size: 14px;
+                    line-height: 1.4;
+                        }
+            </style>
 
             <script>
                 L_NO_TOUCH = false;
                 L_DISABLE_3D = false;
             </script>
+            
 
         
 </head>
@@ -55,6 +84,15 @@
     
     
             <div class="folium-map" id="map_2e2ea2efb4312d2d07f6c71cc9bb4f3c" ></div>
+            <div class="north-arrow">
+            N<br>↑
+            </div>
+            <div class="legend">
+                <b>Légende</b><br>
+                🔵 Station hydrométrique<br>
+                🔴 Station météo<br>
+                ⬛ Limites de Beauvais
+            </div>
         
 </body>
 <script>
