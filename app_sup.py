@@ -108,18 +108,24 @@ fig_rain.update_xaxes(
     tickangle=0
 )
 
-@st.cache_data(ttl=3600) # Cache data for 1 hour
+@st.cache_data(ttl=3600) # mise en cache des données pour 1 heure
 def fetch_data():
-    # --- 1. Fetch Current Water Height Data ---
-    size_hauteur = 20000
+    # --- 1. Récupération des hauteurs d'eau ---
+    size_hauteur = 20000 # récupération des hauteurs d'eau
     # Construction de l'API Hub'Eau - Hauteur d'eau
     url_height = f"https://hubeau.eaufrance.fr/api/v2/hydrometrie/observations_tr?code_entite=H774201001&size={size_hauteur}&pretty&grandeur_hydro=H&fields=code_station,date_debut_serie,date_fin_serie,date_obs,resultat_obs,continuite_obs_hydro"
+    # Envoi de la requête
     response_height = requests.get(url_height)
+    # création d'un dataframe vide
     height_data_df = pd.DataFrame()
+    # Gestion de la réponse si succès ou non
     if response_height.status_code == 200 or response_height.status_code == 206:
+        # conversion du json réponse 
         data_height = response_height.json()
         if 'data' in data_height and data_height['data']:
+            # transformation en dataframe pandas
             height_data_df = pd.DataFrame(data_height['data'])
+            # On renomme les colonnes 'ini' : 'fin'
             rename_map = {
                 'date_obs': 'Date d\'Observation',
                 'resultat_obs': 'Hauteur d\'eau (mm)',
@@ -127,10 +133,15 @@ def fetch_data():
             }
             if 'continuite_obs_hydro' in height_data_df.columns:
                 rename_map['continuite_obs_hydro'] = 'Continuité Obs Hydro'
+            # renommage effectif
             height_data_df = height_data_df.rename(columns=rename_map)
+            # Conversion des dates
             height_data_df['Date d\'Observation'] = pd.to_datetime(height_data_df['Date d\'Observation'])
+            # Rééchantillonnage horaire
             height_data_df = height_data_df.set_index('Date d\'Observation').resample('1h')['Hauteur d\'eau (mm)'].mean().reset_index()
             height_data_df = height_data_df.dropna(subset=['Hauteur d\'eau (mm)'])
+            # # Qte de données après resample 1h (donc total/5)
+            print(f"Nombre de données de hauteur d'eau après resample : {len(height_data_df)}")
 
     # --- 2. Récupération des données de débit ---
     size_flow_historic = 20000
@@ -149,10 +160,13 @@ def fetch_data():
                 'resultat_obs': 'Débit (l/s)'
             })
             df_flow_data['Date d\'Observation'] = pd.to_datetime(df_flow_data['Date d\'Observation'])
+            # Rééchantillonnage horaire
             df_flow_data = df_flow_data.set_index('Date d\'Observation').resample('1h')['Débit (l/s)'].mean().reset_index()
             df_flow_data = df_flow_data.dropna(subset=['Débit (l/s)'])
+            # Qte de données après resample 1h (donc total/5)
+            print(f"Nombre de données de débit : {len(df_flow_data)}")
 
-    # --- 3. Fetch Historical Precipitation Data ---
+    # --- 3. Récupération des données historiques ---
     # Définition du lieu de mesure pour l'API etdes dates de crues (hors API)
     latitude = 49.4333
     longitude = 2.0833
@@ -383,12 +397,13 @@ def fetch_data():
     # Avec un random state = 42, le modèle reste plus ou moins le même à chaque exécution
     # Le random_state peux assurer la stabilité du modèle, le nombre d'estimateurs sa complexité
     model_enhanced = xgb.XGBRegressor(objective='reg:squarederror', n_estimators=100, random_state=42)
-    # Entraînement du modèle avec les inputs (x_new), pour générer des ouputs (y_new)
+        # Entraînement du modèle avec les inputs (x_new), pour générer des ouputs (y_new)
     model_enhanced.fit(
         X_new,
         y_new,
         sample_weight=sample_weights
     )
+
 
     # valeurs de hauteur d'eau générées
     # Récupère les dates les plus récentes
