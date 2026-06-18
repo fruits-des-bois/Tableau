@@ -13,9 +13,9 @@ Une application web développée en Python offrant une interface interactive pou
 
 📂 Structure du projet (c'est le chantier, pas à jour)
 .
-├── app_streamlit.py      # Application principale - Dashboard
-├── fetch_data.py         # Récupère les données de Hub'Eau
-├── train_xgboost.py      # Entraîne le modèle xgboost sur les donnnées      
+├── app_streamlit.py   # Application principale bis - Dashboard
+├── backup.py          # Backup - Dashboard
+├── app_sup.py         # Application principale - Dashboard    
 ````
 
  🛠️ Prérequis
