@@ -1,13 +1,13 @@
 ````markdown
- 📊 Projet Streamlit
+ 📊 Projet Streamlit (Beauvais)
 
-C'est la partie plus "dortoir" sans particuluarités spécifiques. Le principal avantage des fichiers de ce dépôt est qu'ils sont hébergés sur GitHub Page, et accessible à ces urls :
+C'est la partie plus "dortoir" sans particularités spécifiques. Le principal avantage des fichiers de ce dépôt est qu'ils sont hébergés sur GitHub Page, et accessible à ces urls :
 https://fruits-des-bois.github.io/Tableau/previsions_3j.html
 https://fruits-des-bois.github.io/Tableau/debit_d_eau.html
 https://fruits-des-bois.github.io/Tableau/hauteur_d_eau.html
 https://fruits-des-bois.github.io/Tableau/carte_beauvais.html
 
- 📂 Structure de la branche
+ 📂 Structure de la branche main
 .
 ├── previsions_3j.html       # Prévisions des pluies sur les 3 prochains jours
 ├── hauteur_d_eau.html       # 5 dernières mesures d'hauteur d'eau (m)
@@ -30,6 +30,7 @@ Clonez le dépôt :
 git clone https://github.com/fruits-des-bois/votre-projet.git
 cd votre-projet
 ```
+Licence libre !
 
  📄 Licence
 
