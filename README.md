@@ -43,13 +43,13 @@ cd votre-projet
 Lancez l'application avec :
 
 ```bash
-streamlit run app_streamlit.py
+py -m streamlit run {nom_app}.py
 ```
 
 ou
 
 ```bash
-python -m streamlit run app_streamlit.py
+python -m streamlit run {nom_app}.py
 ```
 
 Par défaut, l'application sera disponible à l'adresse :
