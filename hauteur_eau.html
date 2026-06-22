@@ -1,1 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
 
+<style>
+body{
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+    margin:20px;
+}
+
+table{
+    border-collapse:collapse;
+    width:100%;
+    max-width:500px;
+}
+
+h2{
+    margin-bottom:15px;
+    color:#333;
+    font-size:18px;
+    font-weight:bold;
+}
+
+th,td{
+    border:1px solid #ddd;
+    padding:8px;
+}
+
+th{
+    background:#f3f3f3;
+    text-align:left;
+}
+
+td.num{
+    text-align:right;
+}
+
+td.txt{
+    text-align:left;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Hauteur d'eau moyenne par heure (m)</h2>
+
+<table id="tbl">
+    <thead>
+        <tr>
+            <th>Date (UTC)</th>
+            <th>Heure (UTC)</th>
+            <th>Hauteur moyenne (m)</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+
+const url =
+"https://hubeau.eaufrance.fr/api/v2/hydrometrie/observations_tr?code_entite=H774201001&size=30&pretty&grandeur_hydro=H&fields=date_obs,resultat_obs";
+
+fetch(url)
+.then(r => r.json())
+.then(j => {
+
+    const tbody = document.querySelector("#tbl tbody");
+
+    // Ignore les 5 mesures les plus récentes
+    const mesures = j.data.slice(10, 30);
+
+    // Regroupement par heure UTC
+    const groupes = {};
+
+    mesures.forEach(it => {
+
+        if (it.resultat_obs == null) return;
+
+        const dt = new Date(it.date_obs);
+
+        const cleHeure =
+            dt.getUTCFullYear() + "-" +
+            String(dt.getUTCMonth()+1).padStart(2,'0') + "-" +
+            String(dt.getUTCDate()).padStart(2,'0') + " " +
+            String(dt.getUTCHours()).padStart(2,'0');
+
+        if (!groupes[cleHeure]) {
+            groupes[cleHeure] = {
+                somme: 0,
+                nb: 0,
+                date: dt
+            };
+        }
+
+        groupes[cleHeure].somme += it.resultat_obs;
+        groupes[cleHeure].nb += 1;
+
+    });
+
+    // Calcul des moyennes
+    const moyennes = Object.values(groupes)
+        .map(g => ({
+            date: g.date,
+            moyenne: g.somme / g.nb
+        }))
+        .sort((a,b) => b.date - a.date)
+        .slice(0,5);
+
+    moyennes.forEach(item => {
+
+        const tr = document.createElement("tr");
+
+        const date_part = item.date.toISOString().split("T")[0];
+
+        const heure_part =
+            String(item.date.getUTCHours()).padStart(2,'0') +
+            ":00:00";
+
+        const hauteur_m =
+            (item.moyenne / 1000).toFixed(3);
+
+        tr.innerHTML = `
+            <td class="txt">${date_part}</td>
+            <td class="txt">${heure_part}</td>
+            <td class="num">${hauteur_m}</td>
+        `;
+
+        tbody.appendChild(tr);
+
+    });
+
+})
+.catch(e => {
+
+    document.querySelector("#tbl tbody").innerHTML =
+        `<tr><td colspan="3">Erreur : ${e.message}</td></tr>`;
+
+});
+
+</script>
+
+</body>
+</html>
