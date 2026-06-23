@@ -14,7 +14,6 @@ Une application web développée en Python offrant une interface interactive pou
 📂 Structure de la branche Bis (c'est le chantier)
 .
 ├── Readme.md          # documentation partielle
-├── requirements.txt   # Bibliothèques python requises
 ├── backup.py          # Backup - Dashboard
 ├── app_sup.py         # Application principale - Dashboard    
 ````
@@ -24,7 +23,7 @@ Sans oublier la branche main, ici c'est Bis
 
 * Python 3.10 ou supérieur
 * pip
-* bibliothèques dans requirements.txt
+* bibliothèques
 
  📥 Installation
 
@@ -46,12 +45,25 @@ ou
 ```bash
 python -m streamlit run {nom_app}.py
 ```
-
 Par défaut, l'application sera disponible à l'adresse :
-
 ```
 http://localhost:8501
 ```
+
+Bibliothèques requises (13) : 
+* datetime 
+* folium
+* matplotlib
+* numpy 
+* pandas 
+* plotly
+* pyproj
+* pytz
+* requests
+* seaborn
+* streamlit 
+* streamlit_folium 
+* xgboost 
 
  🤝 Contribution
 
