@@ -8,26 +8,23 @@ Une application web développée en Python offrant une interface interactive pou
 - Interface utilisateur intuitive
 - Visualisation interactive des données
 - Traitement automatisé des informations
-- Exécution directement dans le navigateur
+- Exécution depuis l'invite de commande et affichage dans le navigateur
 - Développée entièrement avec Python et Streamlit
 
-📂 Structure du projet (c'est le chantier, pas à jour)
+📂 Structure de la branche Bis (c'est le chantier)
 .
-├── app_streamlit.py   # Application principale bis - Dashboard
+├── Readme.md          # documentation partielle
+├── requirements.txt   # Bibliothèques python requises
 ├── backup.py          # Backup - Dashboard
 ├── app_sup.py         # Application principale - Dashboard    
 ````
+Sans oublier la branche main, ici c'est Bis
 
- 🛠️ Prérequis
+ 🛠️ Prérequis mini
 
 * Python 3.10 ou supérieur
 * pip
-Bibliothèques :
-* Streamlit
-* Pandas
-* NumPy
-* Matplotlib
-* Plotly
+* bibliothèques dans requirements.txt
 
  📥 Installation
 
@@ -45,9 +42,7 @@ Lancez l'application avec :
 ```bash
 py -m streamlit run {nom_app}.py
 ```
-
 ou
-
 ```bash
 python -m streamlit run {nom_app}.py
 ```
