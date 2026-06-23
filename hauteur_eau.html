@@ -60,7 +60,7 @@ td.txt{
 <script>
 
 const url =
-"https://hubeau.eaufrance.fr/api/v2/hydrometrie/observations_tr?code_entite=H774201001&size=30&pretty&grandeur_hydro=H&fields=date_obs,resultat_obs";
+"https://hubeau.eaufrance.fr/api/v2/hydrometrie/observations_tr?code_entite=H774201001&size=50&pretty&grandeur_hydro=H&fields=date_obs,resultat_obs";
 
 fetch(url)
 .then(r => r.json())
@@ -69,7 +69,7 @@ fetch(url)
     const tbody = document.querySelector("#tbl tbody");
 
     // Ignore les 5 mesures les plus récentes
-    const mesures = j.data.slice(10, 30);
+    const mesures = j.data.slice(10, 50);
 
     // Regroupement par heure UTC
     const groupes = {};
