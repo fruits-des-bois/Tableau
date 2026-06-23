@@ -2,6 +2,9 @@
 📊 Projet Streamlit
 
 Une application web développée en Python offrant une interface interactive pour visualiser et traiter des données, sur un Dashboard Streamlit.
+L'application affiche un dashboard contenant un historique des 5 dernières mesures de débits et hauteurs d'eau,
+les prévisions de pluies pour 3 jours et une prévision des hauteurs d'eau à 3 jours basées sur un modèle XGBoost.
+Il est possible d'afficher les dernières pluies sur  jours, et un historique plus anciens des hauteurs d'eat et débits.
 
 🚀 Fonctionnalités
 
