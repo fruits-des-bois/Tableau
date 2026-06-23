@@ -50,7 +50,7 @@ Par défaut, l'application sera disponible à l'adresse :
 http://localhost:8501
 ```
 
-Bibliothèques requises (13) : 
+📚 Bibliothèques requises (13) : 
 * datetime 
 * folium
 * matplotlib
