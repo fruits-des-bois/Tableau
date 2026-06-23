@@ -11,6 +11,8 @@ https://fruits-des-bois.github.io/Tableau/carte_beauvais.html
 .
 ├── previsions_3j.html       # Prévisions des pluies sur les 3 prochains jours
 ├── hauteur_d_eau.html       # 5 dernières mesures d'hauteur d'eau (m)
+├── hauteur_eau.html         # 5 moyennes horaire historiques avant les 5 dernières mesures
+├── debit_eau.html           # 5 moyennes horaire historiques avant les 5 dernières mesures
 ├── debit_d_eau.html         # 5 dernières mesures d'hauteur d'eau (m)
 ├── carte_beauvais.html      # Carte de Beauvais avec la station météo, la station hydrométrique et les limites de Beauvais 
 └── README.md                # Documentation (partielle)
