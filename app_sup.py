@@ -31,21 +31,44 @@ st.title("📊 Dashboard hydrologie Beauvais")
 # =========================
 # IFRAME (GitHub Pages)
 # =========================
+if "tableaux_alternatifs" not in st.session_state:
+    st.session_state.tableaux_alternatifs = False
+
+if st.button("Afficher les tableaux actuels"):
+    st.session_state.tableaux_alternatifs = not st.session_state.tableaux_alternatifs
+
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    components.iframe(
-        "https://fruits-des-bois.github.io/Tableau/debit_d_eau.html",
-        height=320,
-        scrolling=True
-    )
+
+    if not st.session_state.tableaux_alternatifs:
+        components.iframe(
+            "https://fruits-des-bois.github.io/Tableau/debit_d_eau.html",
+            height=320,
+            scrolling=True
+        )
+    else:
+        components.iframe(
+            "https://fruits-des-bois.github.io/Tableau/debit_eau.html",
+            height=320,
+            scrolling=True
+        )
 
 with col2:
-    components.iframe(
-        "https://fruits-des-bois.github.io/Tableau/hauteur_d_eau.html",
-        height=320,
-        scrolling=True
-    )
+
+    if not st.session_state.tableaux_alternatifs:
+        components.iframe(
+            "https://fruits-des-bois.github.io/Tableau/hauteur_d_eau.html",
+            height=320,
+            scrolling=True
+        )
+    else:
+        components.iframe(
+            "https://fruits-des-bois.github.io/Tableau/hauteur_eau.html",
+            height=320,
+            scrolling=True
+        )
+
 with col3:
     components.iframe(
         "https://fruits-des-bois.github.io/Tableau/carte_beauvais.html",
@@ -57,6 +80,17 @@ with col3:
 # =========================
 # MÉTÉO OPEN-METEO
 # =========================
+
+col_btn1, col_btn2 = st.columns(2)
+
+with col_btn1:
+    if st.button("Prévisions de pluies"):
+        st.session_state.vue_pluie = "horaire"
+
+with col_btn2:
+    if st.button("pluie historiques"):
+        st.session_state.vue_pluie = "journaliere"
+
 url = (
     "https://api.open-meteo.com/v1/forecast"
     "?latitude=49.4465"
@@ -81,33 +115,106 @@ end = now + pd.Timedelta(days=4)
 
 df = df[(df["datetime"] >= now) & (df["datetime"] <= end)]
 
-df["label"] = df["datetime"].dt.strftime("%d/%m - %Hh")
+# -----------------------------
+# Graphique précipitations
+# -----------------------------
+if "vue_pluie" not in st.session_state:
+    st.session_state.vue_pluie = "horaire"
 
-fig_rain = go.Figure()
 
-fig_rain.add_trace(
-    go.Bar(
-        x=df["datetime"],
-        y=df["precipitation_mm"],
-        name="Précipitations"
+# -----------------------------
+# INITIALISATION
+# -----------------------------
+fig = None
+
+# -----------------------------
+# Vue horaire (prévisions)
+# -----------------------------
+if st.session_state.vue_pluie == "horaire":
+
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Bar(
+            x=df["datetime"],
+            y=df["precipitation_mm"],
+            name="Précipitations"
+        )
     )
-)
 
-fig_rain.update_layout(
-    width=800,
-    height=450,
-    xaxis_title="Date - Heure",
-    yaxis_title="Précipitations (mm)",
-    title="Précipitations sur 4 jours",
-    hovermode="x unified"
-)
+    fig.update_layout(
+        width=800,
+        height=450,
+        title="Précipitations horaires sur 4 jours (prévisions)",
+        xaxis_title="Date - Heure",
+        yaxis_title="Précipitations (mm)"
+    )
 
-fig_rain.update_xaxes(
-    dtick=6 * 60 * 60 * 1000,  # 6 heures en millisecondes
-    tickformat="%d/%m\n%Hh",
-    tickangle=0
-)
+    fig.update_xaxes(
+        dtick=6 * 60 * 60 * 1000,
+        tickformat="%d/%m\n%Hh"
+    )
 
+
+# -----------------------------
+# Vue historique (4 jours passés)
+# -----------------------------
+else:
+
+    end_date = pd.Timestamp.now().strftime("%Y-%m-%d")
+    start_date = (pd.Timestamp.now() - pd.Timedelta(days=4)).strftime("%Y-%m-%d")
+
+    url_hist = (
+        "https://archive-api.open-meteo.com/v1/archive"
+        f"?latitude=49.4465"
+        f"&longitude=2.127167"
+        f"&start_date={start_date}"
+        f"&end_date={end_date}"
+        "&hourly=precipitation"
+        "&timezone=Europe/Paris"
+    )
+
+    r_hist = requests.get(url_hist)
+    data_hist = r_hist.json()
+
+    times_hist = pd.to_datetime(data_hist["hourly"]["time"])
+    rain_hist = data_hist["hourly"]["precipitation"]
+
+    df_hist = pd.DataFrame({
+        "datetime": times_hist,
+        "precipitation_mm": rain_hist
+    })
+
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Bar(
+            x=df_hist["datetime"],
+            y=df_hist["precipitation_mm"],
+            name="Précipitations observées"
+        )
+    )
+
+    fig.update_layout(
+        width=800,
+        height=450,
+        title="Précipitations horaires des 4 derniers jours",
+        xaxis_title="Date - Heure",
+        yaxis_title="Précipitations (mm)",
+        hovermode="x unified"
+    )
+
+    fig.update_xaxes(
+        dtick=6 * 60 * 60 * 1000,
+        tickformat="%d/%m\n%Hh"
+    )
+
+# -----------------------------
+# AFFICHAGE UNIQUE (IMPORTANT)
+# -----------------------------
+st.plotly_chart(fig, use_container_width=False, key="pluie_chart")
+
+# Début du code Streamlit
 @st.cache_data(ttl=3600) # mise en cache des données pour 1 heure
 def fetch_data():
     # --- 1. Récupération des hauteurs d'eau ---
@@ -166,19 +273,16 @@ def fetch_data():
             # Qte de données après resample 1h (donc total/5)
             print(f"Nombre de données de débit : {len(df_flow_data)}")
 
-    # --- 3. Récupération des données historiques ---
+    # --- 3. Récupération des données historiques de pluies ---
     # Définition du lieu de mesure pour l'API etdes dates de crues (hors API)
     latitude = 49.4333
     longitude = 2.0833
     # 3 ans et demis de données avec les crues
     flood_days = {
-        1999: ["1999-12-25", "1999-12-29"],
-        2000: ["2000-01-01", "2000-12-29"],
-        2001: ["2001-03-15","2001-03-30"],
-        2010: ["2010-01-02", "2010-12-29"],
-        2018: ["2018-01-10", "2018-01-30"],
-        2021: ["2021-06-21", "2021-06-26"],
-        2024: ["2024-01-01", "2024-12-31"],
+        1999 : ["1999-12-24", "1999-12-29"],
+        2001 : ["2001-03-24", "2001-03-24"],
+        2018 : ["1999-12-24", "1999-12-29"],
+        2021 : ["1999-06-21", "1999-06-29"]
     }
     all_precipitation_historical_dfs = []
     euro_paris_tz = pytz.timezone('Europe/Paris')
@@ -210,6 +314,16 @@ def fetch_data():
                         })
                         # Normalisation
                         df_precipitation_year["Hour"] = df_precipitation_year["Date"].dt.hour
+                        # Tri temporel
+                        df_precipitation_year = df_precipitation_year.sort_values("Date")
+                        df_precipitation_year = df_precipitation_year.set_index("Date")
+                        # Création des variables de pluies cumulées
+                        df_precipitation_year["rain_24h"] = df_precipitation_year["Precipitation (mm)"].rolling(24).sum()
+                        df_precipitation_year["rain_6h"] = df_precipitation_year["Precipitation (mm)"].rolling(6).sum()
+                        df_precipitation_year["rain_lag_6h"] = df_precipitation_year["Precipitation (mm)"].shift(6)
+                        df_precipitation_year["rain_max_12h"] = df_precipitation_year["Precipitation (mm)"].rolling(12).max()
+                        #colonne date
+                        df_precipitation_year = df_precipitation_year.reset_index()
                         # Gestion du fuseau horaire
                         all_precipitation_historical_dfs.append(df_precipitation_year)
 
@@ -363,7 +477,8 @@ def fetch_data():
         'year', 'month', 'day', 'hour', 'minute', 'dayofweek', 'dayofyear', 'weekofyear',
         'Débit (l/s)', 'Precipitation (mm)',
         "Hauteur_t-1", "Hauteur_t-3", "Hauteur_t-24",
-        "Débit_t-1", "Débit_t-6","Pluie_6h","Pluie_24h"
+        "Débit_t-1", "Débit_t-6","rain_24h","rain_6h",
+        "rain_lag_6h","rain_max_12h"
     ]
     # LA variable à estimer : target_new (variable cible)
     target_new = 'Hauteur d\'eau (mm)'
@@ -460,6 +575,20 @@ def fetch_data():
                                   future_precipitation_resampled,
                                   on='Date d\'Observation',
                                   how='left')
+
+    # Création des variables de cumul
+    df_future_enhanced["Date"] = df_future_enhanced["Date d'Observation"]
+    df_future_enhanced = df_future_enhanced.sort_values("Date d'Observation")
+    df_future_enhanced = df_future_enhanced.set_index("Date d'Observation")
+
+    df_future_enhanced["rain_24h"] = df_future_enhanced["Precipitation (mm)"].rolling(24).sum()
+    df_future_enhanced["rain_6h"] = df_future_enhanced["Precipitation (mm)"].rolling(6).sum()
+    df_future_enhanced["rain_lag_6h"] = df_future_enhanced["Precipitation (mm)"].shift(6)
+    df_future_enhanced["rain_max_12h"] = df_future_enhanced["Precipitation (mm)"].rolling(12).max()
+    # Normalisation
+    df_future_enhanced = df_future_enhanced.reset_index()
+    # Gestion des NaN
+    df_future_enhanced = df_future_enhanced.fillna(0)
     # On remplace les valeurs manquantes
     df_future_enhanced.loc[:, 'Precipitation (mm)'] = df_future_enhanced['Precipitation (mm)'].fillna(0.0)
     # Prévoit un débit constant sur la durée des prévision
@@ -496,10 +625,8 @@ def fetch_data():
     df_future_enhanced.loc[:, "Impact_pluie"] = (
     df_future_enhanced["Precipitation (mm)"] * df_future_enhanced["Débit (l/s)"]
     )
-    # amplifie l'impact de la pluie (*1.5)
-    df_future_enhanced.loc[:, "Pluie_effective"] = (
-    df_future_enhanced["Precipitation (mm)"] ** 10
-    )
+    # amplifie l'impact de la pluie 
+    df_future_enhanced["Pluie_effective"] = np.log1p(df_future_enhanced["Precipitation (mm)"])
     # Sélection des variables du modèle
     # On garde les colonnes utiilisées lors de l'entraînement
     X_future_enhanced = df_future_enhanced[features_new]
@@ -559,6 +686,7 @@ def fetch_data():
     "Date et heure": df_future_enhanced["Date d'Observation"],
     "Hauteur d'eau prévue (mm)": predictions
     })
+    
 
     return df_predictions_future_enhanced
 
@@ -587,13 +715,7 @@ fig.update_layout(
     yaxis_title="Hauteur d'eau (mm)",
     hovermode="x unified"
 )
-col1, col2 = st.columns(2)
-
-with col1:
-    st.plotly_chart(fig_rain, use_container_width=True)
-
-with col2:
-    st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, use_container_width=True)
 
 # l.27 : Construction de l'API Hub'Eau - Hauteur d'eau
 # l.49 : # Construction de l'API Hub'Eau - Débit
