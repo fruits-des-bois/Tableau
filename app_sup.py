@@ -148,7 +148,7 @@ st.markdown(
         top: 0 !important;  
         left: calc((100vw - 100%) / -2) !important; 
         width: 100vw !important;
-        height: 170px !important;
+        height: 150px !important;
         background-color: #0B2742 !important;
         z-index: -1 !important;
     }
@@ -227,19 +227,12 @@ st.markdown(
     .stTabs [data-baseweb="tab"] {
     
         background-color: transparent !important;
-    
         color: #FFFFFF !important;
-    
         border: none !important;
-    
         border-radius: 7px 7px 0 0 !important;
-    
         padding: 10px 18px !important;
-    
         font-size: 14px !important;
-    
         font-weight: 600 !important;
-    
         transition: all 0.2s ease !important;
     }
     
@@ -248,7 +241,6 @@ st.markdown(
     .stTabs [data-baseweb="tab"] *,
     .stTabs [data-baseweb="tab"] p,
     .stTabs [data-baseweb="tab"] span {
-    
         color: #FFFFFF !important;
     }
     
@@ -258,9 +250,7 @@ st.markdown(
        ============================================================ */
     
     .stTabs [data-baseweb="tab"]:hover {
-    
         background-color: #FFFFFF !important;
-    
         color: #368ED1 !important;
     }
     
