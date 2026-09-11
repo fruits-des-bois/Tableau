@@ -310,23 +310,6 @@ def appliquer_theme_plotly(fig):
     )
     return fig
 
-# ============================================================
-# BANDEAU TITRE DU DASHBOARD
-# ============================================================
-
-st.markdown
-("""
-    <div class="dashboard-header">
-        <div class="dashboard-title">
-            🌊 Dashboard hydrologie de Beauvais
-        </div>
-        <div class="dashboard-subtitle">
-            Suivi de la hauteur d'eau, du débit, des précipitations et des prévisions
-        </div>
-    </div>
-    """, unsafe_allow_html=True
-)
-
 # ------------------------
 # Début du code Streamlit
 # ------------------------
@@ -803,9 +786,25 @@ def fetch_data():
         "Hauteur d'eau prévue (mm)": predictions
     })
 
-# =========================
+# ============================================================
+# BANDEAU DU DASHBOARD
+# ============================================================
+
+st.markdown("""
+<div class="dashboard-header">
+    <div class="dashboard-title">
+        🌊 Dashboard hydrologie de Beauvais
+    </div>
+    <div class="dashboard-subtitle">
+        Suivi de la hauteur d'eau, du débit, des précipitations et des prévisions
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+# ============================================================
 # ONGLETS DE NAVIGATION
-# =========================
+# ============================================================
+
 tab_debit, tab_hauteur, tab_carte, tab_meteo, tab_previsions = st.tabs([
     "💧 Débit d'eau", 
     "📏 Hauteur d'eau", 
@@ -813,6 +812,7 @@ tab_debit, tab_hauteur, tab_carte, tab_meteo, tab_previsions = st.tabs([
     "🌧️ Précipitations", 
     "📈 Prévision de hauteur d’eau"
 ])
+
 # -------------------------
 # TAB : DEBIT D'EAU
 # -------------------------
