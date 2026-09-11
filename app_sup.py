@@ -35,7 +35,7 @@ st.markdown(
        ============================== */
     .stApp {
         background-color: #3A7AA6 !important; /* arrière-plan général */
-        color: #FFFFFF !important;
+        color: #E8E8E8 !important;
     }
 
     .stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6, 
