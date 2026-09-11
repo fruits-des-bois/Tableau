@@ -48,7 +48,7 @@ st.markdown(
        ====================== */
     
     div.stButton > button {
-        background-color: #F7F7F7 !important;
+        background-color: #368ED1 !important;
         color: #000000 !important;
         border: 1px solid #3a506b !important;
         border-radius: 8px !important;
@@ -59,8 +59,8 @@ st.markdown(
     }
 
     div.stButton > button:hover {
-        background-color: #BABABA !important;
-        color: #000000!important;
+        background-color: #000000 !important;
+        color: #368ED1!important;
         border-color: #00f5d4 !important;
         box-shadow: 0 0 10px rgba(0, 245, 212, 0.3) !important;
     }
@@ -70,9 +70,8 @@ st.markdown(
    =========================== */
 
     div[data-testid="stPopover"] button {
-        background-color: #F7F7F7 !important;
-        color: #C3CDD6 !important;
-        border: 1px solid #3a506b !important;
+        background-color: #368ED1 !important;
+        color: #000000 !important;
         width: 60px !important;
         height: 38px !important;
         min-width: 38px !important;
@@ -84,9 +83,9 @@ st.markdown(
     }
 
     div[data-testid="stPopover"] button:hover {
-        background-color: #F7F7F7 !important;
-        color: #C3CDD6 !important;
-        border-color: #00f5d4 !important;
+        background-color: #000000 !important;
+        color: #368ED1 !important;
+        border-color: #368ED1 !important;
     }
 
 
