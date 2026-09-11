@@ -828,13 +828,13 @@ with st.container(border=True):
 # Onlets de navigation
 # ===================================
     
-    tab_debit, tab_hauteur, tab_carte, tab_meteo, tab_previsions = st.tabs([
-        "💧 Débit d'eau",
-        "📏 Hauteur d'eau",
-        "🗺️ Carte",
-        "🌧️ Précipitations",
-        "📈 Prévision de hauteur d’eau"
-    ])
+tab_debit, tab_hauteur, tab_carte, tab_meteo, tab_previsions = st.tabs([
+    "💧 Débit d'eau",
+    "📏 Hauteur d'eau",
+    "🗺️ Carte",
+    "🌧️ Précipitations",
+    "📈 Prévision de hauteur d’eau"
+])
 # -------------------------
 # TAB : DEBIT D'EAU
 # -------------------------
