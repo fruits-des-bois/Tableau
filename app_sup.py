@@ -188,18 +188,31 @@ st.markdown(
     /* ============================
     5. ONGLETS (st.tabs) 
     ============================*/
-    button[data-baseweb="tab"] {
-        background-color: #085B8A !important;
-        color: #e0e1dd !important;
-        border-radius: 6px 6px 0px 0px !important;
-        border: 1px solid #3a506b !important;
-        margin-right: 4px !important;
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 4px;
+        background-color: #0B2742;
+        padding: 8px 10px 0 10px;
+        border-radius: 14px 14px 0 0;
     }
-
-    button[aria-selected="true"] {
-        background-color: #1C4394 !important;
-        color: #00f5d4 !important;
-        border-bottom: 3px solid #00f5d4 !important;
+    
+    .stTabs [data-baseweb="tab"] {
+        background-color: #123E5C;
+        color: #C9D8E3;
+        border-radius: 10px 10px 0 0;
+        padding: 10px 18px;
+        font-size: 14px;
+        font-weight: 600;
+        border: none;
+    }
+    
+    .stTabs [data-baseweb="tab"]:hover {
+        background-color: #168AAD;
+        color: #FFFFFF;
+    }
+    
+    .stTabs [aria-selected="true"] {
+        background-color: #00C2D7 !important;
+        color: #0B2742 !important;
     }
 
     </style>
