@@ -49,7 +49,7 @@ st.markdown(
     
     div.stButton > button {
         background-color: #368ED1 !important;
-        color: #000000 !important;
+        color: #FFFFFF !important;
         border: 1px solid #3a506b !important;
         border-radius: 8px !important;
         padding: 8px 16px !important;
@@ -59,7 +59,7 @@ st.markdown(
     }
 
     div.stButton > button:hover {
-        background-color: #000000 !important;
+        background-color: #FFFFFF !important;
         color: #368ED1!important;
         border-color: #00f5d4 !important;
         box-shadow: 0 0 10px rgba(0, 245, 212, 0.3) !important;
@@ -71,7 +71,7 @@ st.markdown(
 
     div[data-testid="stPopover"] button {
         background-color: #368ED1 !important;
-        color: #000000 !important;
+        color: #FFFFFF !important;
         width: 60px !important;
         height: 38px !important;
         min-width: 38px !important;
@@ -83,7 +83,7 @@ st.markdown(
     }
 
     div[data-testid="stPopover"] button:hover {
-        background-color: #000000 !important;
+        background-color: #FFFFFF !important;
         color: #368ED1 !important;
         border-color: #368ED1 !important;
     }
@@ -146,7 +146,14 @@ st.markdown(
         margin: 0 !important;
         padding: 0 !important;
     }
-    
+
+    .dashboard-subtitle {
+        color: #FFFFFF !important;
+        font-size: 14px !important;
+        font-weight: 100 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
     
     /* ============================================================
        ONGLET INDIVIDUEL
