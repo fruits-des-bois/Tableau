@@ -256,19 +256,26 @@ def appliquer_theme_plotly(fig):
 # EN-TÊTE DU DASHBOARD
 # ============================================================
 
-st.markdown("""
-<div class="dashboard-header">
-
-    <div class="dashboard-title">
+st.markdown(
+    """
+    <h1 style="
+        color: white;
+        font-size: 30px;
+        margin-bottom: 5px;
+    ">
         🌊 Dashboard hydrologique de Beauvais
-    </div>
+    </h1>
 
-    <div class="dashboard-subtitle">
+    <p style="
+        color: #C9D8E3;
+        font-size: 14px;
+        margin-top: 0;
+    ">
         Suivi de la hauteur d'eau, du débit, des précipitations et des prévisions
-    </div>
-
-</div>
-""", unsafe_allow_html=True)
+    </p>
+    """,
+    unsafe_allow_html=True
+)
 
 
 # ------------------------
