@@ -43,33 +43,43 @@ st.markdown(
         color: #000000;
     }
 
-/* ===========================================
-   HEADER 1.1
-   ======================================== */
+# ============================================================
+# HEADER DU DASHBOARD
+# ============================================================
 
+st.markdown(
+    """
+    <style>
     .dashboard-header {
-        background:#144869 ;
-        border-radius: 0 0 18px 18px;
-        padding: 22px 30px 12px 30px;
-        margin: -1rem -1rem 25px -1rem;
+        background-color: #0B2742;
+        padding: 20px 30px;
+        border-radius: 18px 18px 0 0;
         border-bottom: 3px solid #00C2D7;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.20);
+        margin-bottom: 0;
     }
-    
-    .dashboard-title {
-        color: #FFFFFF;
-        font-size: 30px;
-        font-weight: 700;
-        margin: 0;
-        padding: 0;
+
+    .dashboard-header h1 {
+        color: white !important;
+        font-size: 30px !important;
+        font-weight: 700 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
-    
-    .dashboard-subtitle {
-        color: #C9D8E3;
-        font-size: 14px;
-        margin-top: 5px;
-        margin-bottom: 15px;
+
+    .dashboard-header p {
+        color: #C9D8E3 !important;
+        font-size: 14px !important;
+        margin: 6px 0 0 0 !important;
     }
+    </style>
+
+    <div class="dashboard-header">
+        <h1>🌊 Dashboard hydrologique de Beauvais</h1>
+        <p>Suivi de la hauteur d'eau, du débit, des précipitations et des prévisions</p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 /* ==================================
    ONGLET DU DASHBOARD 1.2
    ================================ */
