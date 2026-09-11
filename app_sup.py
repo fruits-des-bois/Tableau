@@ -48,18 +48,11 @@ st.markdown(
    ============================================================ */
 
     .dashboard-header {
-        background: linear-gradient(
-            135deg,
-            #0B2742 0%,
-            #123E5C 100%
-        );
-    
+        background:#144869 ;
         border-radius: 0 0 18px 18px;
         padding: 22px 30px 12px 30px;
         margin: -1rem -1rem 25px -1rem;
-    
         border-bottom: 3px solid #00C2D7;
-    
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.20);
     }
     
