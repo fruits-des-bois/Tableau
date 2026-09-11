@@ -127,13 +127,37 @@ st.markdown(
         background-color: #193F8C !important;
     }
 
-    /* ============================================================
-   BANDEAU : TITRE + ONGLETS
+/* ============================================================
+   BANDEAU PRINCIPAL : TITRE + SOUS-TITRE + ONGLETS
    ============================================================ */
 
     .dashboard-header {
-        background-color: #0B2742 !important;
+        position: relative !important;
+        z-index: 1 !important;
+        background-color: transparent !important; 
+        padding: 22px 30px 15px 30px !important;   
+        margin: 0 !important; 
+        border-radius: 18px 18px 0 0 !important;
     }
+    
+    
+    /* Grand fond bleu qui s'étend sur toute la largeur de la page */
+    .dashboard-header::before {
+        content: "" !important;    
+        position: absolute !important;  
+        top: 0 !important;  
+        left: calc((100vw - 100%) / -2) !important; 
+        width: 100vw !important;
+        height: 155px !important;
+        background-color: #0B2742 !important;
+        border-radius: 18px 18px 0 0 !important;
+        z-index: -1 !important;
+    }
+    
+    
+    /* ============================================================
+       TITRE
+       ============================================================ */
     
     .dashboard-title {
         color: #FFFFFF !important;
@@ -142,39 +166,155 @@ st.markdown(
         margin: 0 !important;
         padding: 0 !important;
     }
-
-    .dashboard-subtitle {
-        color: #FFFFFF !important;
-        font-size: 14px !important;
-        font-weight: 500 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
+    
     
     /* ============================================================
-       ONGLET INDIVIDUEL
+       SOUS-TITRE
+       ============================================================ */
+    
+    .dashboard-subtitle {
+        color: #FFFFFF !important;
+    
+        font-size: 14px !important;
+    
+        font-weight: 500 !important;
+    
+        margin: 5px 0 12px 0 !important;
+    
+        padding: 0 !important;
+    }
+
+
+/* ============================================================
+   ZONE DES ONGLETS
+   ============================================================ */
+
+    .stTabs {
+        position: relative !important;
+    
+        z-index: 2 !important;
+    
+        margin-top: 0 !important;
+    
+        padding-top: 0 !important;
+    
+        background: transparent !important;
+    }
+    
+    
+    /* Conteneur des onglets */
+    .stTabs [data-baseweb="tab-list"] {
+    
+        background-color: transparent !important;
+    
+        border: none !important;
+    
+        box-shadow: none !important;
+    
+        width: 100% !important;
+    
+        padding: 0 30px 10px 30px !important;
+    
+        margin: 0 !important;
+    
+        gap: 6px !important;
+    }
+    
+    
+    /* ============================================================
+       ONGLET / BOUTON
        ============================================================ */
     
     .stTabs [data-baseweb="tab"] {
-        background-color: #16496A !important;  
-        color: #FFFFFF !important;   
-        border: none !important;  
-        border-radius: 8px 8px 0 0 !important; 
+    
+        background-color: transparent !important;
+    
+        color: #FFFFFF !important;
+    
+        border: none !important;
+    
+        border-radius: 7px 7px 0 0 !important;
+    
         padding: 10px 18px !important;
+    
         font-size: 14px !important;
+    
         font-weight: 600 !important;
+    
+        transition: all 0.2s ease !important;
     }
     
-    /* Onglet sélectionné */
+    
+    /* Force le texte et les icônes en blanc */
+    .stTabs [data-baseweb="tab"] *,
+    .stTabs [data-baseweb="tab"] p,
+    .stTabs [data-baseweb="tab"] span {
+    
+        color: #FFFFFF !important;
+    }
+    
+    
+    /* ============================================================
+       SOURIS SUR UN ONGLET
+       ============================================================ */
+    
+    .stTabs [data-baseweb="tab"]:hover {
+    
+        background-color: #FFFFFF !important;
+    
+        color: #368ED1 !important;
+    }
+    
+    
+    /* Texte bleu au survol */
+    .stTabs [data-baseweb="tab"]:hover *,
+    .stTabs [data-baseweb="tab"]:hover p,
+    .stTabs [data-baseweb="tab"]:hover span {
+    
+        color: #368ED1 !important;
+    }
+    
+    
+    /* ============================================================
+       ONGLET ACTIF
+       ============================================================ */
+    
     .stTabs [data-baseweb="tab"][aria-selected="true"] {
+    
         background-color: #00C2D7 !important;
+    
         color: #0B2742 !important;
     }
     
-    /* Ligne de sélection native de Streamlit */
+    
+    /* Texte de l'onglet actif */
+    .stTabs [data-baseweb="tab"][aria-selected="true"] *,
+    .stTabs [data-baseweb="tab"][aria-selected="true"] p,
+    .stTabs [data-baseweb="tab"][aria-selected="true"] span {
+    
+        color: #0B2742 !important;
+    }
+    
+    
+    /* ============================================================
+       INDICATEUR SOUS L'ONGLET ACTIF
+       ============================================================ */
+    
     .stTabs [data-baseweb="tab-highlight"] {
     
         background-color: #00C2D7 !important;
+    }
+    
+    
+    /* ============================================================
+       CONTENU DES ONGLETS
+       ============================================================ */
+    
+    .stTabs > div:nth-child(2) {
+    
+        background-color: transparent !important;
+    
+        padding-top: 15px !important;
     }
 
 /* ============================================================
