@@ -34,13 +34,13 @@ st.markdown(
        1. FOND GLOBAL ET TYPOGRAPHIE
        ============================== */
     .stApp {
-        background-color: #204F8C !important; /* Bleu nuit profond */
-        color: #8D90A1 !important;
+        background-color: #F2F2F2 !important; /* Bleu nuit profond */
+        color: #000000 !important;
     }
 
     .stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6, 
     .stApp span, .stApp label, .stApp div {
-        color: #AFB6BA;
+        color: #000000;
     }
 
     /* =========================
@@ -153,19 +153,19 @@ st.markdown(
 
 def appliquer_theme_plotly(fig):
     fig.update_layout(
-        paper_bgcolor="#24A1D6",  # Fond extérieur du graphique (identique à la page)
-        plot_bgcolor="#AAB7BD",   # Fond de la zone de traçage
-        font=dict(color="#A1A2AD"), # Couleur du texte
+        paper_bgcolor="#D1D1D1",  # Fond extérieur du graphique (identique à la page)
+        plot_bgcolor="#EDEDED",   # Fond de la zone de traçage
+        font=dict(color="#000000"), # Couleur du texte
         title_font=dict(color="#30303B", size=16), # Couleur des titres
         xaxis=dict(
-            gridcolor="#33333D",   # Couleur de la grille
-            title_font=dict(color="#30303B"),
-            tickfont=dict(color="#30303B")
+            gridcolor="#998E88",   # Couleur de la grille
+            title_font=dict(color="#000000"),
+            tickfont=dict(color="#000000")
         ),
         yaxis=dict(
-            gridcolor="#929AA6",   # Couleur de la grille
-            title_font=dict(color="#30303B"),
-            tickfont=dict(color="#30303B")
+            gridcolor="#998E88",   # Couleur de la grille
+            title_font=dict(color="#000000"),
+            tickfont=dict(color="#000000")
         ),
         margin=dict(l=40, r=40, t=50, b=40)
     )
