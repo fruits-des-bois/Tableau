@@ -217,7 +217,7 @@ st.markdown(
    ============================================================ */
 
 /* Fond bleu de la zone contenant les onglets */
-.header {
+.st.tabs.a {
     background-color: #0B2742 !important;
     border-radius: 0 0 18px 18px !important;
     padding: 0 12px 10px 12px !important;
@@ -265,6 +265,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# Fonction graphiques
 def appliquer_theme_plotly(fig):
     fig.update_layout(
         # Couleurs générales
@@ -817,7 +818,7 @@ st.markdown(
 # ONGLETS
 # ============================================================
 
-tab_debit, tab_hauteur, tab_carte, tab_meteo, tab_previsions = st.tabs([
+tab_debit, tab_hauteur, tab_carte, tab_meteo, tab_previsions = st.tabs.a([
     "💧 Débit d'eau",
     "📏 Hauteur d'eau",
     "🗺️ Carte",
