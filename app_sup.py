@@ -129,7 +129,7 @@ st.markdown(
     }
     
     /* ============================================================
-       BANDEAU : TITRE + ONGLETS
+       5. BANDEAU : TITRE + ONGLETS
        ============================================================ */
     
     /* -------------------------
@@ -163,19 +163,12 @@ st.markdown(
        PARTIE HAUTE DES ONGLETS
        ============================================================ */
     
-    /*
-       IMPORTANT :
-       On cible uniquement le premier enfant de stTabs,
-       c'est-à-dire la barre des onglets.
-    */
-    
     .stTabs > div:first-child {
         background-color: #0B2742 !important;
         padding: 8px 30px 14px 30px !important;
         margin: 0 !important;
         border-radius: 0 0 18px 18px !important;
     }
-    
     
     /* Liste contenant les boutons des onglets */
     
@@ -193,40 +186,33 @@ st.markdown(
     
     .stTabs [data-baseweb="tab"] {
         background-color: #16496A !important;
-        color: #FFFFFF !important;
-    
+        color: #FFFFFF !important;    
         border: none !important;
         border-radius: 8px 8px 0 0 !important;
-    
-        padding: 11px 20px !important;
-    
+        padding: 11px 20px !important;    
         font-size: 14px !important;
         font-weight: 600 !important;
     }
     
     
-    /* Onglet au survol */
-    
+    /* Onglet au survol */    
     .stTabs [data-baseweb="tab"]:hover {
         background-color: #168AAD !important;
         color: #FFFFFF !important;
     }
     
     
-    /* Onglet sélectionné */
-    
+    /* Onglet sélectionné */    
     .stTabs [data-baseweb="tab"][aria-selected="true"] {
         background-color: #00C2D7 !important;
         color: #0B2742 !important;
     }
     
     
-    /* Ligne native sous l'onglet */
-    
+    /* Ligne native sous l'onglet */    
     .stTabs [data-baseweb="tab-highlight"] {
         background-color: #00C2D7 !important;
-    }
-    
+    }    
     
     /* ============================================================
        CONTENU DES ONGLETS
