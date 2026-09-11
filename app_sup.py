@@ -153,19 +153,19 @@ st.markdown(
 
 def appliquer_theme_plotly(fig):
     fig.update_layout(
-        paper_bgcolor="#F4F8FA",  # Fond extérieur du graphique (identique à la page)
-        plot_bgcolor="#4CC9F0",   # Fond de la zone de traçage
-        font=dict(color="#FFFFFF"), # Couleur du texte
-        title_font=dict(color="#FFFFFF", size=16), # Couleur des titres
+        paper_bgcolor="#24A1D6",  # Fond extérieur du graphique (identique à la page)
+        plot_bgcolor="#AAB7BD",   # Fond de la zone de traçage
+        font=dict(color="#A1A2AD"), # Couleur du texte
+        title_font=dict(color="#30303B", size=16), # Couleur des titres
         xaxis=dict(
             gridcolor="#33333D",   # Couleur de la grille
-            title_font=dict(color="#FFFFFF"),
-            tickfont=dict(color="#FFFFFF")
+            title_font=dict(color="#30303B"),
+            tickfont=dict(color="#30303B")
         ),
         yaxis=dict(
             gridcolor="#929AA6",   # Couleur de la grille
-            title_font=dict(color="#FFFFFF"),
-            tickfont=dict(color="#FFFFFF")
+            title_font=dict(color="#30303B"),
+            tickfont=dict(color="#30303B")
         ),
         margin=dict(l=40, r=40, t=50, b=40)
     )
