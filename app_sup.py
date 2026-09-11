@@ -751,13 +751,6 @@ def fetch_data():
         "Date et heure": df_future_enhanced["Date d'Observation"],
         "Hauteur d'eau prévue (mm)": predictions
     })
-# ============================================================
-# EN-TÊTE DU DASHBOARD
-# ============================================================
-
-st.markdown("""
-        🌊 Dashboard hydrologique de Beauvais
-""", unsafe_allow_html=True)
 
 # ============================================================
 # ONGLETS
