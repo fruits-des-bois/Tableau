@@ -128,28 +128,96 @@ st.markdown(
         background-color: #193F8C !important;
     }
 
-    /* ============================
-    5. ONGLETS (st.tabs) 
-    ============================*/
-    button[data-baseweb="tab"] {
-        background-color: #085B8A !important;
-        color: #e0e1dd !important;
-        border-radius: 6px 6px 0px 0px !important;
-        border: 1px solid #3a506b !important;
-        margin-right: 4px !important;
-    }
+/* ============================================================
+   BANDEAU TITRE + ONGLETS
+   ============================================================ */
 
-    button[aria-selected="true"] {
-        background-color: #1C4394 !important;
-        color: #00f5d4 !important;
-        border-bottom: 3px solid #00f5d4 !important;
-    }
+/* ----- TITRE ----- */
+
+.dashboard-header {
+    background: #0B2742 !important;
+    border-radius: 18px 18px 0 0 !important;
+    padding: 22px 30px 12px 30px !important;
+    margin: -1rem -1rem 0 -1rem !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+.dashboard-title {
+    color: #FFFFFF !important;
+    font-size: 30px !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.dashboard-subtitle {
+    color: #C9D8E3 !important;
+    font-size: 14px !important;
+    margin-top: 5px !important;
+    margin-bottom: 0 !important;
+}
 
 
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+/* ----- BARRE DES ONGLETS UNIQUEMENT ----- */
+
+/*
+   IMPORTANT :
+   On ne stylise PAS .stTabs lui-même.
+   On stylise uniquement tab-list.
+*/
+
+.stTabs [data-baseweb="tab-list"] {
+    background-color: #0B2742 !important;
+
+    border-radius: 0 0 18px 18px !important;
+
+    padding: 8px 22px 12px 22px !important;
+
+    gap: 5px !important;
+
+    margin: 0 -1rem 25px -1rem !important;
+}
+
+
+/* ----- ONGLET NORMAL ----- */
+
+.stTabs [data-baseweb="tab"] {
+    background-color: #16496A !important;
+    color: #FFFFFF !important;
+
+    border: none !important;
+
+    border-radius: 8px 8px 0 0 !important;
+
+    padding: 10px 18px !important;
+
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+
+/* ----- SURVOL ----- */
+
+.stTabs [data-baseweb="tab"]:hover {
+    background-color: #168AAD !important;
+    color: #FFFFFF !important;
+}
+
+
+/* ----- ONGLET SÉLECTIONNÉ ----- */
+
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+    background-color: #00C2D7 !important;
+    color: #0B2742 !important;
+}
+
+
+/* ----- LIGNE SOUS L'ONGLET ----- */
+
+.stTabs [data-baseweb="tab-highlight"] {
+    background-color: #00C2D7 !important;
+}
 
 def appliquer_theme_plotly(fig):
     fig.update_layout(
