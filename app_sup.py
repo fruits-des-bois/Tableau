@@ -127,21 +127,22 @@ st.markdown(
         border-radius: 8px !important;
         background-color: #193F8C !important;
     }
-    /* ============================================================
-       BANDEAU PRINCIPAL : TITRE + ONGLETS
-       ============================================================ */
     
-    /* Conteneur du titre */
+/* ============================================================
+   BANDEAU TITRE + PARTIE HAUTE DES ONGLETS
+   ============================================================ */
+
+    /* ---------- TITRE ---------- */
+    
     .dashboard-header {
         background-color: #0B2742 !important;
-        padding: 22px 30px 15px 30px !important;
+        padding: 22px 30px 18px 30px !important;
         margin: 0 0 0 0 !important;
         border-radius: 18px 18px 0 0 !important;
         border: none !important;
         box-shadow: none !important;
     }
     
-    /* Titre */
     .dashboard-title {
         color: #FFFFFF !important;
         font-size: 30px !important;
@@ -150,29 +151,93 @@ st.markdown(
         padding: 0 !important;
     }
     
-    /* Sous-titre */
     .dashboard-subtitle {
         color: #C9D8E3 !important;
         font-size: 14px !important;
         margin: 5px 0 0 0 !important;
-        padding: 0 !important;
     }
     
     
-    /* ============================================================
-       BARRE DES ONGLETS
-       ============================================================ */
+    /* ---------- CONTENEUR DES ONGLETS ---------- */
+    
+    /*
+       IMPORTANT :
+       On ne met PAS de background sur .stTabs.
+       Sinon le bleu descendrait autour des graphiques/tableaux.
+    */
     
     .stTabs {
         margin-top: 0 !important;
     }
     
-    /* C'est CET élément qui reçoit le fond bleu */
+    
+    /* ---------- BARRE SUPÉRIEURE DES ONGLETS ---------- */
+    
     .stTabs > div:first-child {
         background-color: #0B2742 !important;
         padding: 8px 22px 12px 22px !important;
+        margin: 0 !important;
         border-radius: 0 0 18px 18px !important;
     }
+    
+    
+    /* ---------- LISTE DES ONGLETS ---------- */
+    
+    .stTabs [data-baseweb="tab-list"] {
+        background-color: transparent !important;
+        gap: 5px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    
+    /* ---------- ONGLET NORMAL ---------- */
+    
+    .stTabs [data-baseweb="tab"] {
+        background-color: #16496A !important;
+        color: #FFFFFF !important;
+        border: none !important;
+        border-radius: 8px 8px 0 0 !important;
+        padding: 10px 18px !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+    }
+    
+    
+    /* ---------- SURVOL ---------- */
+    
+    .stTabs [data-baseweb="tab"]:hover {
+        background-color: #168AAD !important;
+        color: #FFFFFF !important;
+    }
+    
+    
+    /* ---------- ONGLET ACTIF ---------- */
+    
+    .stTabs [data-baseweb="tab"][aria-selected="true"] {
+        background-color: #00C2D7 !important;
+        color: #0B2742 !important;
+    }
+    
+    
+    /* ---------- LIGNE SOUS L'ONGLET ---------- */
+    
+    .stTabs [data-baseweb="tab-highlight"] {
+        background-color: #00C2D7 !important;
+    }
+    
+    
+    /* ---------- CONTENU DES ONGLETS ---------- */
+    
+    /*
+       Le contenu reste sur le fond gris de la page.
+       Il n'est donc PAS inclus dans le bandeau.
+    */
+    
+    .stTabs > div:nth-child(2) {
+        background-color: transparent !important;
+    }
+    
     
     /* Liste des onglets */
     .stTabs [data-baseweb="tab-list"] {
@@ -245,7 +310,20 @@ def appliquer_theme_plotly(fig):
     )
     return fig
 
-st.title("📊 Dashboard hydrologie Beauvais")
+# ============================================================
+# BANDEAU TITRE DU DASHBOARD
+# ============================================================
+
+    st.markdown("""
+    <div class="dashboard-header">
+        <div class="dashboard-title">
+            🌊 Dashboard hydrologie de Beauvais
+        </div>
+        <div class="dashboard-subtitle">
+            Suivi de la hauteur d'eau, du débit, des précipitations et des prévisions
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 # ------------------------
 # Début du code Streamlit
