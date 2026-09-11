@@ -47,39 +47,7 @@ st.markdown(
 # HEADER DU DASHBOARD
 # ============================================================
 
-st.markdown(
-    """
-    <style>
-    .dashboard-header {
-        background-color: #0B2742;
-        padding: 20px 30px;
-        border-radius: 18px 18px 0 0;
-        border-bottom: 3px solid #00C2D7;
-        margin-bottom: 0;
-    }
 
-    .dashboard-header h1 {
-        color: white !important;
-        font-size: 30px !important;
-        font-weight: 700 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    .dashboard-header p {
-        color: #C9D8E3 !important;
-        font-size: 14px !important;
-        margin: 6px 0 0 0 !important;
-    }
-    </style>
-
-    <div class="dashboard-header">
-        <h1>🌊 Dashboard hydrologique de Beauvais</h1>
-        <p>Suivi de la hauteur d'eau, du débit, des précipitations et des prévisions</p>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
 /* ==================================
    ONGLET DU DASHBOARD 1.2
    ================================ */
@@ -262,7 +230,23 @@ def appliquer_theme_plotly(fig):
 
     return fig
 
+# ============================================================
+# HEADER
+# ============================================================
 
+st.markdown(
+    """
+    <div class="dashboard-header">
+        <div class="dashboard-title">
+            🌊 Dashboard hydrologique de Beauvais
+        </div>
+        <div class="dashboard-subtitle">
+            Suivi de la hauteur d'eau, du débit, des précipitations et des prévisions
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # ------------------------
 # Début du code Streamlit
