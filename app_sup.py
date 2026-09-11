@@ -58,6 +58,7 @@ st.markdown(
     
     .dashboard-title {
         color: #FFFFFF !important;
+        background: #0B2742 !important;
         font-size: 30px !important;
         font-weight: 700 !important;
         margin: 0 !important;
@@ -66,6 +67,7 @@ st.markdown(
     
     .dashboard-subtitle {
         color: #C9D8E3 !important;
+        background: #0B2742 !important;
         font-size: 14px !important;
         margin-top: 6px !important;
         margin-bottom: 0 !important;
