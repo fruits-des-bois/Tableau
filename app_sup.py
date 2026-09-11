@@ -48,8 +48,8 @@ st.markdown(
        ====================== */
     
     div.stButton > button {
-        background-color: #085B8A !important;
-        color: #FFFFFF !important;
+        background-color: #F7F7F7 !important;
+        color: #000000 !important;
         border: 1px solid #3a506b !important;
         border-radius: 8px !important;
         padding: 8px 16px !important;
@@ -59,8 +59,8 @@ st.markdown(
     }
 
     div.stButton > button:hover {
-        background-color: #214385 !important;
-        color: #00f5d4 !important;
+        background-color: #BABABA !important;
+        color: #000000!important;
         border-color: #00f5d4 !important;
         box-shadow: 0 0 10px rgba(0, 245, 212, 0.3) !important;
     }
@@ -70,7 +70,7 @@ st.markdown(
    =========================== */
 
     div[data-testid="stPopover"] button {
-        background-color: #296F8C !important;
+        background-color: #F7F7F7 !important;
         color: #C3CDD6 !important;
         border: 1px solid #3a506b !important;
         width: 60px !important;
@@ -84,7 +84,7 @@ st.markdown(
     }
 
     div[data-testid="stPopover"] button:hover {
-        background-color: #296F8C !important;
+        background-color: #F7F7F7 !important;
         color: #C3CDD6 !important;
         border-color: #00f5d4 !important;
     }
@@ -148,88 +148,32 @@ st.markdown(
         padding: 0 !important;
     }
     
-    .dashboard-subtitle {
-        color: #C9D8E3 !important;
-        font-size: 14px !important;
-        margin: 5px 0 0 0 !important;
-    }
-    
-    /* ============================================================
-   ONGLET : on supprime l'espace entre le titre et les onglets
-   ============================================================ */
-
-    .stTabs {
-        margin-top: 0 !important;
-    
-        padding-top: 0 !important;
-    }
-    
-    
-    /* Partie contenant réellement les onglets */
-    .stTabs div[data-baseweb="tab-list"] {
-    
-        background-color: #0B2742 !important;
-    
-        width: 100% !important;
-    
-        box-sizing: border-box !important;
-    
-        padding: 0 22px 12px 22px !important;
-    
-        margin: 0 !important;
-    
-        gap: 5px !important;
-    
-        border-radius: 0 0 18px 18px !important;
-    }
-    
     
     /* ============================================================
        ONGLET INDIVIDUEL
        ============================================================ */
     
     .stTabs [data-baseweb="tab"] {
-    
-        background-color: #16496A !important;
-    
-        color: #FFFFFF !important;
-    
-        border: none !important;
-    
-        border-radius: 8px 8px 0 0 !important;
-    
+        background-color: #16496A !important;  
+        color: #FFFFFF !important;   
+        border: none !important;  
+        border-radius: 8px 8px 0 0 !important; 
         padding: 10px 18px !important;
-    
         font-size: 14px !important;
-    
         font-weight: 600 !important;
     }
     
-    
-    /* Survol */
-    .stTabs [data-baseweb="tab"]:hover {
-    
-        background-color: #168AAD !important;
-    
-        color: #FFFFFF !important;
-    }
-    
-    
     /* Onglet sélectionné */
     .stTabs [data-baseweb="tab"][aria-selected="true"] {
-    
         background-color: #00C2D7 !important;
-    
         color: #0B2742 !important;
     }
-    
     
     /* Ligne de sélection native de Streamlit */
     .stTabs [data-baseweb="tab-highlight"] {
     
         background-color: #00C2D7 !important;
     }
-
 
 /* ============================================================
    CONTENU DES ONGLETS
