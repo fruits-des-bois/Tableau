@@ -217,7 +217,7 @@ st.markdown(
    ============================================================ */
 
 /* Fond bleu de la zone contenant les onglets */
-.st.tabs.a {
+.st.tabs {
     background-color: #0B2742 !important;
     border-radius: 0 0 18px 18px !important;
     padding: 0 12px 10px 12px !important;
@@ -818,7 +818,7 @@ st.markdown(
 # ONGLETS
 # ============================================================
 
-tab_debit, tab_hauteur, tab_carte, tab_meteo, tab_previsions = st.tabs.a([
+tab_debit, tab_hauteur, tab_carte, tab_meteo, tab_previsions = st.tabs([
     "💧 Débit d'eau",
     "📏 Hauteur d'eau",
     "🗺️ Carte",
