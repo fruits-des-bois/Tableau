@@ -226,7 +226,6 @@ st.markdown(
     .stTabs > div:nth-child(2) {
         background-color: #F2F2F2 !important;
     }
-)
 
 # ======================
 # fonction graph
