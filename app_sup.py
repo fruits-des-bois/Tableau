@@ -266,24 +266,6 @@ def appliquer_theme_plotly(fig):
 
     return fig
 
-# ==============
-# HEADER
-# ==============
-
-st.markdown(
-    """
-    <div class="dashboard-header">
-        <div class="dashboard-title">
-            🌊 Dashboard hydrologique de Beauvais
-        </div>
-        <div class="dashboard-subtitle">
-            Suivi de la hauteur d'eau, du débit, des précipitations et des prévisions
-        </div>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
-
 # ------------------------
 # Début du code Streamlit
 # ------------------------
@@ -760,16 +742,52 @@ def fetch_data():
         "Hauteur d'eau prévue (mm)": predictions
     })
 
-# =========================
-# ONGLETS DE NAVIGATION
-# =========================
-tab_debit, tab_hauteur, tab_carte, tab_meteo, tab_previsions = st.tabs([
-    "💧 Débit d'eau", 
-    "📏 Hauteur d'eau", 
-    "🗺️ Carte", 
-    "🌧️ Précipitations", 
-    "📈 Prévision de hauteur d’eau"
-])
+# ============================================================
+# BANDEAU PRINCIPAL : TITRE + ONGLETS
+# ============================================================
+
+with st.container(border=True):
+
+    st.markdown(
+        """
+        <div style="
+            background-color: #0B2742;
+            padding: 20px 25px 15px 25px;
+            margin: -1px -1px 0 -1px;
+            border-radius: 15px 15px 0 0;
+        ">
+            <div style="
+                color: white;
+                font-size: 30px;
+                font-weight: 700;
+                margin-bottom: 5px;
+            ">
+                🌊 Dashboard hydrologique de Beauvais
+            </div>
+
+            <div style="
+                color: #C9D8E3;
+                font-size: 14px;
+            ">
+                Suivi de la hauteur d'eau, du débit,
+                des précipitations et des prévisions
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+# ===================================
+# Onlets de navigation
+# ===================================
+    
+    tab_debit, tab_hauteur, tab_carte, tab_meteo, tab_previsions = st.tabs([
+        "💧 Débit d'eau",
+        "📏 Hauteur d'eau",
+        "🗺️ Carte",
+        "🌧️ Précipitations",
+        "📈 Prévision de hauteur d’eau"
+    ])
 # -------------------------
 # TAB : DEBIT D'EAU
 # -------------------------
