@@ -34,72 +34,13 @@ st.markdown(
        1. FOND GLOBAL ET TYPOGRAPHIE
        ============================== */
     .stApp {
-        background-color: #E8E8E8 !important; /* arrière-plan général */
-        color: #E8E8E8 !important;
+        background-color: #204F8C !important; /* Bleu nuit profond */
+        color: #8D90A1 !important;
     }
 
     .stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6, 
     .stApp span, .stApp label, .stApp div {
-        color: #000000;
-    }
-
-# ============================================================
-# HEADER DU DASHBOARD 1.1
-# ============================================================
-
-    .dashboard-header {
-        background: #0B2742 !important;
-        border-radius: 18px 18px 0 0 !important;
-        padding: 22px 30px 16px 30px !important;
-        margin: 0 0 0 0 !important;
-        border-bottom: 3px solid #00C2D7 !important;
-        box-shadow: none !important;
-    }
-    
-    .dashboard-title {
-        color: #FFFFFF !important;
-        font-size: 30px !important;
-        font-weight: 700 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    
-    .dashboard-subtitle {
-        color: #C9D8E3 !important;
-        font-size: 14px !important;
-        margin-top: 6px !important;
-        margin-bottom: 0 !important;
-    }
-
-/* ==================================
-   ONGLET DU DASHBOARD 1.2
-   ================================ */
-
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 4px;
-        background-color: #0B2742;
-        padding: 8px 10px 0 10px;
-        border-radius: 14px 14px 0 0;
-    }    
-    .stTabs [data-baseweb="tab"] {
-        background-color: #123E5C;
-        color: #C9D8E3;    
-        border-radius: 10px 10px 0 0;    
-        padding: 10px 18px;    
-        font-size: 14px;
-        font-weight: 600;    
-        border: none;
-    }    
-    .stTabs [data-baseweb="tab"]:hover {
-        background-color: #168AAD;
-        color: #FFFFFF;
-    }    
-    .stTabs [aria-selected="true"] {
-        background-color: #00C2D7 !important;
-        color: #0B2742 !important;
-    }
-    .stTabs [data-baseweb="tab-highlight"] {
-        background-color: #00C2D7;
+        color: #AFB6BA;
     }
 
     /* =========================
@@ -148,6 +89,7 @@ st.markdown(
         border-color: #00f5d4 !important;
     }
 
+
     /* ===========================
        FENÊTRE DU POPOVER
        ========================= */
@@ -159,6 +101,7 @@ st.markdown(
         color: #222424 !important;
     }
 
+
     /* Contenu texte */
     div[data-testid="stPopoverBody"] p,
     div[data-testid="stPopoverBody"] li,
@@ -167,6 +110,7 @@ st.markdown(
         background-color: #2093C7 !important;
     }
 
+
     /* Bordure et arrondi */
     div[data-testid="stPopoverBody"] {
         border: 1px solid #48cae4 !important;
@@ -174,6 +118,7 @@ st.markdown(
         padding: 12px !important;
     }
     
+
     /* ============================
     4. DATAFRAMES INTERACTIFS (st.dataframe) 
     ============================*/
@@ -183,98 +128,50 @@ st.markdown(
         background-color: #193F8C !important;
     }
 
-/* ============================================================
-   5. BANDEAU ONGLETS 
-   ============================================================ */
+    /* ============================
+    5. ONGLETS (st.tabs) 
+    ============================*/
+    button[data-baseweb="tab"] {
+        background-color: #085B8A !important;
+        color: #e0e1dd !important;
+        border-radius: 6px 6px 0px 0px !important;
+        border: 1px solid #3a506b !important;
+        margin-right: 4px !important;
+    }
 
-/* Barre contenant uniquement les boutons des onglets */
-.stTabs [data-baseweb="tab-list"] {
-    background-color: #0B2742 !important;
-    border-radius: 0 0 18px 18px !important;
-    padding: 8px 12px 10px 12px !important;
-    gap: 5px !important;
-    margin: 0 !important;
-}
+    button[aria-selected="true"] {
+        background-color: #1C4394 !important;
+        color: #00f5d4 !important;
+        border-bottom: 3px solid #00f5d4 !important;
+    }
 
-/* Onglet normal */
-.stTabs [data-baseweb="tab"] {
-    background-color: #16496A !important;
-    color: #FFFFFF !important;
-    border: none !important;
-    border-radius: 8px 8px 0 0 !important;
-    padding: 10px 18px !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-}
 
-/* Onglet au survol */
-.stTabs [data-baseweb="tab"]:hover {
-    background-color: #168AAD !important;
-    color: #FFFFFF !important;
-}
-
-/* Onglet sélectionné */
-.stTabs [data-baseweb="tab"][aria-selected="true"] {
-    background-color: #00C2D7 !important;
-    color: #0B2742 !important;
-}
-
-/* Ligne automatique de Streamlit */
-.stTabs [data-baseweb="tab-highlight"] {
-    background-color: #00C2D7 !important;
-}
-
-# ==========================
-# 6. Fonction graphiques
-# ==========================
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 def appliquer_theme_plotly(fig):
     fig.update_layout(
-        # Couleurs générales
-        paper_bgcolor="#F4F8FA",
-        plot_bgcolor="#FFFFFF",
-
-        # Texte
-        font=dict(
-            color="#24445A",
-            size=13
-        ),
-
-        # Titre
-        title_font=dict(
-            color="#0B2742",
-            size=18
-        ),
-
-        # Axe X
+        paper_bgcolor="#24A1D6",  # Fond extérieur du graphique (identique à la page)
+        plot_bgcolor="#AAB7BD",   # Fond de la zone de traçage
+        font=dict(color="#A1A2AD"), # Couleur du texte
+        title_font=dict(color="#30303B", size=16), # Couleur des titres
         xaxis=dict(
-            gridcolor="#D9E5EB",
-            zerolinecolor="#D9E5EB",
-            title_font=dict(
-                color="#36566B",
-                size=13
-            ),
-            tickfont=dict(
-                color="#36566B",
-                size=11
-            )
+            gridcolor="#33333D",   # Couleur de la grille
+            title_font=dict(color="#30303B"),
+            tickfont=dict(color="#30303B")
         ),
-
-        # Axe Y
         yaxis=dict(
-            gridcolor="#D9E5EB",
-            zerolinecolor="#D9E5EB",
-            title_font=dict(
-                color="#36566B",
-                size=13
-            ),
-            tickfont=dict(color="#36566B",size=11)
+            gridcolor="#929AA6",   # Couleur de la grille
+            title_font=dict(color="#30303B"),
+            tickfont=dict(color="#30303B")
         ),
-        # Marges
         margin=dict(l=40, r=40, t=50, b=40)
     )
-
     return fig
+
+st.title("📊 Dashboard hydrologie Beauvais")
 
 # ------------------------
 # Début du code Streamlit
@@ -751,27 +648,15 @@ def fetch_data():
         "Date et heure": df_future_enhanced["Date d'Observation"],
         "Hauteur d'eau prévue (mm)": predictions
     })
-# ============================================================
-# EN-TÊTE DU DASHBOARD
-# ============================================================
 
-st.markdown("""
-<div class="dashboard-header">
-    <div class="dashboard-title">
-        🌊 Dashboard hydrologique de Beauvais
-    </div>
-</div>
-""", unsafe_allow_html=True)
-
-# ============================================================
-# ONGLETS
-# ============================================================
-
+# =========================
+# ONGLETS DE NAVIGATION
+# =========================
 tab_debit, tab_hauteur, tab_carte, tab_meteo, tab_previsions = st.tabs([
-    "💧 Débit d'eau",
-    "📏 Hauteur d'eau",
-    "🗺️ Carte",
-    "🌧️ Précipitations",
+    "💧 Débit d'eau", 
+    "📏 Hauteur d'eau", 
+    "🗺️ Carte", 
+    "🌧️ Précipitations", 
     "📈 Prévision de hauteur d’eau"
 ])
 # -------------------------
@@ -940,7 +825,7 @@ with tab_meteo:
             x=df_pluie['datetime'],
             y=df_pluie['precipitation_mm'],
             name='Précipitations',
-            marker_color='#168AAD',  # Couleur des barres
+            marker_color='#113391',  # Couleur des barres
         )
     )
     fig_pluie.update_layout(
@@ -965,7 +850,7 @@ with tab_meteo:
             x=df_hist['datetime'],
             y=df_hist['precipitation_mm'],
             name='Précipitations observées',
-            marker_color='#168AAD', #couleur des barres
+            marker_color='#113391', #couleur des barres
         )
     )
     fig_pluie.update_layout(
@@ -1013,7 +898,7 @@ with tab_previsions:
         y="Hauteur d'eau prévue (mm)",
         title="Hauteur d'eau pour les 72 prochaines heures",
     )
-    fig_pred.update_traces(line_color='#168AAD', line_width=3)
+    fig_pred.update_traces(line_color='#1570D1', line_width=3)
     fig_pred = appliquer_theme_plotly(fig_pred)
 
     st.plotly_chart(fig_pred, use_container_width=True)
