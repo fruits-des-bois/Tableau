@@ -797,20 +797,7 @@ with st.container(border=True):
 
    st.markdown(
     """
-    <div style="
-        background-color: #0B2742;
-        padding: 22px 30px 16px 30px;
-        border-radius: 18px 18px 0 0;
-        margin-bottom: 0;
-    ">
-        <div style="
-            color: white;
-            font-size: 30px;
-            font-weight: 700;
-        ">
             🌊 Dashboard hydrologique de Beauvais
-        </div>
-    </div>
     """,
     unsafe_allow_html=True
 )
