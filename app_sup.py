@@ -154,89 +154,91 @@ st.markdown(
         margin: 5px 0 0 0 !important;
     }
     
-    
     /* ============================================================
-       PARTIE HAUTE DES ONGLETS
-       ============================================================ */
+   ONGLET : on supprime l'espace entre le titre et les onglets
+   ============================================================ */
+
+    .stTabs {
+        margin-top: 0 !important;
     
-    /*
-       IMPORTANT :
-       On cible uniquement le premier enfant de stTabs,
-       c'est-à-dire la barre des onglets.
-    */
+        padding-top: 0 !important;
+    }
     
-    .stTabs > div:first-child {
+    
+    /* Partie contenant réellement les onglets */
+    .stTabs div[data-baseweb="tab-list"] {
+    
         background-color: #0B2742 !important;
-        padding: 8px 30px 14px 30px !important;
+    
+        width: 100% !important;
+    
+        box-sizing: border-box !important;
+    
+        padding: 0 22px 12px 22px !important;
+    
         margin: 0 !important;
+    
+        gap: 5px !important;
+    
         border-radius: 0 0 18px 18px !important;
     }
     
     
-    /* Liste contenant les boutons des onglets */
-    
-    .stTabs [data-baseweb="tab-list"] {
-        background-color: transparent !important;
-        gap: 6px !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-    
-    
     /* ============================================================
-       BOUTONS DES ONGLETS
+       ONGLET INDIVIDUEL
        ============================================================ */
     
     .stTabs [data-baseweb="tab"] {
+    
         background-color: #16496A !important;
+    
         color: #FFFFFF !important;
     
         border: none !important;
+    
         border-radius: 8px 8px 0 0 !important;
     
-        padding: 11px 20px !important;
+        padding: 10px 18px !important;
     
         font-size: 14px !important;
+    
         font-weight: 600 !important;
     }
     
     
-    /* Onglet au survol */
-    
+    /* Survol */
     .stTabs [data-baseweb="tab"]:hover {
+    
         background-color: #168AAD !important;
+    
         color: #FFFFFF !important;
     }
     
     
     /* Onglet sélectionné */
-    
     .stTabs [data-baseweb="tab"][aria-selected="true"] {
+    
         background-color: #00C2D7 !important;
+    
         color: #0B2742 !important;
     }
     
     
-    /* Ligne native sous l'onglet */
-    
+    /* Ligne de sélection native de Streamlit */
     .stTabs [data-baseweb="tab-highlight"] {
+    
         background-color: #00C2D7 !important;
     }
-    
-    
-    /* ============================================================
-       CONTENU DES ONGLETS
-       ============================================================ */
-    
-    /*
-       Le deuxième enfant correspond au contenu.
-       Il reste sur le fond gris de la page.
-    */
-    
+
+
+/* ============================================================
+   CONTENU DES ONGLETS
+   ============================================================ */
+
     .stTabs > div:nth-child(2) {
-        background-color: #F2F2F2 !important;
+
+    background-color: transparent !important;
     }
-    
     </style>
     """,
     unsafe_allow_html=True
