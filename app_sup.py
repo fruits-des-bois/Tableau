@@ -127,23 +127,6 @@ st.markdown(
         border-radius: 8px !important;
         background-color: #193F8C !important;
     }
-
-    /* ============================
-    5. ONGLETS (st.tabs) 
-    ============================*/
-    button[data-baseweb="tab"] {
-        background-color: #085B8A !important;
-        color: #e0e1dd !important;
-        border-radius: 6px 6px 0px 0px !important;
-        border: 1px solid #3a506b !important;
-        margin-right: 4px !important;
-    }
-
-    button[aria-selected="true"] {
-        background-color: #1C4394 !important;
-        color: #00f5d4 !important;
-        border-bottom: 3px solid #00f5d4 !important;
-    }
 /* ============================================================
    BANDEAU TITRE + ONGLETS
    ============================================================ */
