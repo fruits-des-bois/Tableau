@@ -34,13 +34,13 @@ st.markdown(
        1. FOND GLOBAL ET TYPOGRAPHIE
        ============================== */
     .stApp {
-        background-color: #204F8C !important; /* Bleu nuit profond */
-        color: #8D90A1 !important;
+        background-color: #0B2742 !important; /* arrière-plan général */
+        color: #FFFFFF !important;
     }
 
     .stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6, 
     .stApp span, .stApp label, .stApp div {
-        color: #AFB6BA;
+        color: #FFFFFF;
     }
 
     /* =========================
@@ -153,19 +153,19 @@ st.markdown(
 
 def appliquer_theme_plotly(fig):
     fig.update_layout(
-        paper_bgcolor="#24A1D6",  # Fond extérieur du graphique (identique à la page)
-        plot_bgcolor="#AAB7BD",   # Fond de la zone de traçage
-        font=dict(color="#A1A2AD"), # Couleur du texte
-        title_font=dict(color="#30303B", size=16), # Couleur des titres
+        paper_bgcolor="#F4F8FA",  # Fond extérieur du graphique (identique à la page)
+        plot_bgcolor="#4CC9F0",   # Fond de la zone de traçage
+        font=dict(color="##FFFFFF"), # Couleur du texte
+        title_font=dict(color="##FFFFFF", size=16), # Couleur des titres
         xaxis=dict(
             gridcolor="#33333D",   # Couleur de la grille
-            title_font=dict(color="#30303B"),
-            tickfont=dict(color="#30303B")
+            title_font=dict(color="##FFFFFF"),
+            tickfont=dict(color="##FFFFFF")
         ),
         yaxis=dict(
             gridcolor="#929AA6",   # Couleur de la grille
-            title_font=dict(color="#30303B"),
-            tickfont=dict(color="#30303B")
+            title_font=dict(color="##FFFFFF"),
+            tickfont=dict(color="##FFFFFF")
         ),
         margin=dict(l=40, r=40, t=50, b=40)
     )
@@ -825,7 +825,7 @@ with tab_meteo:
             x=df_pluie['datetime'],
             y=df_pluie['precipitation_mm'],
             name='Précipitations',
-            marker_color='#113391',  # Couleur des barres
+            marker_color='#168AAD',  # Couleur des barres
         )
     )
     fig_pluie.update_layout(
@@ -850,7 +850,7 @@ with tab_meteo:
             x=df_hist['datetime'],
             y=df_hist['precipitation_mm'],
             name='Précipitations observées',
-            marker_color='#113391', #couleur des barres
+            marker_color='#168AAD', #couleur des barres
         )
     )
     fig_pluie.update_layout(
@@ -898,7 +898,7 @@ with tab_previsions:
         y="Hauteur d'eau prévue (mm)",
         title="Hauteur d'eau pour les 72 prochaines heures",
     )
-    fig_pred.update_traces(line_color='#1570D1', line_width=3)
+    fig_pred.update_traces(line_color='#168AAD', line_width=3)
     fig_pred = appliquer_theme_plotly(fig_pred)
 
     st.plotly_chart(fig_pred, use_container_width=True)
