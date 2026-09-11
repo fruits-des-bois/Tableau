@@ -133,10 +133,6 @@ st.markdown(
 
     .dashboard-header {
         background-color: #0B2742 !important;
-        padding: 22px 30px 18px 30px !important;
-        margin: 0 !important;
-        border-radius: 18px 18px 0 0 !important;
-        border: none !important;
     }
     
     .dashboard-title {
@@ -150,7 +146,7 @@ st.markdown(
     .dashboard-subtitle {
         color: #FFFFFF !important;
         font-size: 14px !important;
-        font-weight: 100 !important;
+        font-weight: 500 !important;
         margin: 0 !important;
         padding: 0 !important;
     }
