@@ -41,8 +41,8 @@ table {
     border-collapse: collapse;
     width: 100%;
     max-width: 600px;
-    background: #154E96;
-    color: #CECED9;
+    background: #F0F0F0;
+    color: #000000;
     table-layout: fixed;
 }
 
@@ -85,7 +85,7 @@ td {
 
 th {
     background: #1553A1;
-    color: #A8B0B5;
+    color: #000000;
     text-align: center;
     font-weight: bold;
 }
@@ -95,11 +95,11 @@ th {
 ========================================================= */
 
 tbody tr:nth-child(even) {
-    background: #1563A9;
+    background: #F0F0F0;
 }
 
 tbody tr:nth-child(odd) {
-    background: #1563A0;
+    background: #FFFFFF;
 }
 
 
