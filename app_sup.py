@@ -148,7 +148,7 @@ st.markdown(
         top: 0 !important;  
         left: calc((100vw - 100%) / -2) !important; 
         width: 100vw !important;
-        height: 150px !important;
+        height: 140px !important;
         background-color: #0B2742 !important;
         z-index: -1 !important;
     }
