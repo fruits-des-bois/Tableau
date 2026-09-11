@@ -127,7 +127,6 @@ st.markdown(
         border-radius: 8px !important;
         background-color: #193F8C !important;
     }
-"""
 )
 
 # ======================
