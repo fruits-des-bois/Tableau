@@ -789,20 +789,6 @@ def fetch_data():
         "Hauteur d'eau prévue (mm)": predictions
     })
 
-# ============================================================
-# BANDEAU PRINCIPAL : TITRE + ONGLETS
-# ============================================================
-"""
-with st.container(border=True):
-
-   st.markdown(
-    """
-            🌊 Dashboard hydrologique de Beauvais
-    """,
-    unsafe_allow_html=True
-)
-"""
-
 # ===================================
 # Onlets de navigation
 # ===================================
