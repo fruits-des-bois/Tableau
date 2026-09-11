@@ -747,20 +747,6 @@ def fetch_data():
         "Hauteur d'eau prévue (mm)": predictions
     })
 
-st.markdown("""
-<div class="dashboard-header">
-
-    <div class="dashboard-title">
-        🌊 Dashboard hydrologique de Beauvais
-    </div>
-
-    <div class="dashboard-subtitle">
-        Suivi de la hauteur d'eau, du débit, des précipitations et des prévisions
-    </div>
-
-</div>
-""", unsafe_allow_html=True)
-
 # =========================
 # ONGLETS DE NAVIGATION
 # =========================
