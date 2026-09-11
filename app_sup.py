@@ -258,25 +258,20 @@ def appliquer_theme_plotly(fig):
 
 st.markdown(
     """
-    <h1 style="
-        color: white;
-        font-size: 30px;
-        margin-bottom: 5px;
-    ">
-        🌊 Dashboard hydrologique de Beauvais
-    </h1>
+    <div class="dashboard-header">
 
-    <p style="
-        color: #C9D8E3;
-        font-size: 14px;
-        margin-top: 0;
-    ">
-        Suivi de la hauteur d'eau, du débit, des précipitations et des prévisions
-    </p>
+        <div class="dashboard-title">
+            🌊 Dashboard hydrologique de Beauvais
+        </div>
+
+        <div class="dashboard-subtitle">
+            Suivi de la hauteur d'eau, du débit, des précipitations et des prévisions
+        </div>
+
+    </div>
     """,
     unsafe_allow_html=True
 )
-
 
 # ------------------------
 # Début du code Streamlit
