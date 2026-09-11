@@ -810,15 +810,6 @@ with st.container(border=True):
         ">
             🌊 Dashboard hydrologique de Beauvais
         </div>
-
-        <div style="
-            color: #C9D8E3;
-            font-size: 14px;
-            margin-top: 6px;
-        ">
-            Suivi de la hauteur d'eau, du débit,
-            des précipitations et des prévisions
-        </div>
     </div>
     """,
     unsafe_allow_html=True
