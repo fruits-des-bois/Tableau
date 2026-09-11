@@ -155,17 +155,17 @@ def appliquer_theme_plotly(fig):
     fig.update_layout(
         paper_bgcolor="#F4F8FA",  # Fond extérieur du graphique (identique à la page)
         plot_bgcolor="#4CC9F0",   # Fond de la zone de traçage
-        font=dict(color="##FFFFFF"), # Couleur du texte
-        title_font=dict(color="##FFFFFF", size=16), # Couleur des titres
+        font=dict(color="#FFFFFF"), # Couleur du texte
+        title_font=dict(color="#FFFFFF", size=16), # Couleur des titres
         xaxis=dict(
             gridcolor="#33333D",   # Couleur de la grille
-            title_font=dict(color="##FFFFFF"),
-            tickfont=dict(color="##FFFFFF")
+            title_font=dict(color="#FFFFFF"),
+            tickfont=dict(color="#FFFFFF")
         ),
         yaxis=dict(
             gridcolor="#929AA6",   # Couleur de la grille
-            title_font=dict(color="##FFFFFF"),
-            tickfont=dict(color="##FFFFFF")
+            title_font=dict(color="#FFFFFF"),
+            tickfont=dict(color="#FFFFFF")
         ),
         margin=dict(l=40, r=40, t=50, b=40)
     )
