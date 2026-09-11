@@ -43,6 +43,41 @@ st.markdown(
         color: #FFFFFF;
     }
 
+/* ============================================================
+   HEADER + ONGLET DU DASHBOARD
+   ============================================================ */
+
+    .dashboard-header {
+        background: linear-gradient(
+            135deg,
+            #0B2742 0%,
+            #123E5C 100%
+        );
+    
+        border-radius: 0 0 18px 18px;
+        padding: 22px 30px 12px 30px;
+        margin: -1rem -1rem 25px -1rem;
+    
+        border-bottom: 3px solid #00C2D7;
+    
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.20);
+    }
+    
+    .dashboard-title {
+        color: #FFFFFF;
+        font-size: 30px;
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .dashboard-subtitle {
+        color: #C9D8E3;
+        font-size: 14px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+
     /* =========================
        2. BOUTONS (st.button)
        ====================== */
@@ -676,6 +711,24 @@ def fetch_data():
         "Date et heure": df_future_enhanced["Date d'Observation"],
         "Hauteur d'eau prévue (mm)": predictions
     })
+# ==============
+# Titre
+# ==============
+
+st.markdown("""
+<div class="dashboard-header">
+
+    <div class="dashboard-title">
+        🌊 Dashboard hydrologique de Beauvais
+    </div>
+
+    <div class="dashboard-subtitle">
+        Suivi de la hauteur d'eau, du débit, des précipitations et des prévisions
+    </div>
+
+</div>
+""", unsafe_allow_html=True)
+
 
 # =========================
 # ONGLETS DE NAVIGATION
