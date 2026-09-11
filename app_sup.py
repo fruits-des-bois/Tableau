@@ -47,6 +47,29 @@ st.markdown(
 # HEADER DU DASHBOARD
 # ============================================================
 
+    .dashboard-header {
+        background: #0B2742 !important;
+        border-radius: 18px 18px 0 0 !important;
+        padding: 22px 30px 16px 30px !important;
+        margin: 0 0 0 0 !important;
+        border-bottom: 3px solid #00C2D7 !important;
+        box-shadow: none !important;
+    }
+    
+    .dashboard-title {
+        color: #FFFFFF !important;
+        font-size: 30px !important;
+        font-weight: 700 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .dashboard-subtitle {
+        color: #C9D8E3 !important;
+        font-size: 14px !important;
+        margin-top: 6px !important;
+        margin-bottom: 0 !important;
+    }
 
 /* ==================================
    ONGLET DU DASHBOARD 1.2
