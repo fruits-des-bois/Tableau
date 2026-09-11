@@ -34,7 +34,7 @@ st.markdown(
        1. FOND GLOBAL ET TYPOGRAPHIE
        ============================== */
     .stApp {
-        background-color: #246796 !important; /* arrière-plan général */
+        background-color: #3A7AA6 !important; /* arrière-plan général */
         color: #FFFFFF !important;
     }
 
