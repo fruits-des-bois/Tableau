@@ -211,8 +211,8 @@ st.markdown(
 # ======================
 def appliquer_theme_plotly(fig):
     fig.update_layout(
-        paper_bgcolor="#D1D1D1",  # Fond extérieur du graphique (identique à la page)
-        plot_bgcolor="#EDEDED",   # Fond de la zone de traçage
+        paper_bgcolor="#000000",  # Fond extérieur du graphique (identique à la page)
+        plot_bgcolor="#000000",   # Fond de la zone de traçage
         font=dict(color="#000000"), # Couleur du texte
         title_font=dict(color="#30303B", size=16), # Couleur des titres
         xaxis=dict(
