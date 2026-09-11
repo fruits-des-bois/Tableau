@@ -217,7 +217,7 @@ st.markdown(
    ============================================================ */
 
 /* Fond bleu de la zone contenant les onglets */
-.stTabs {
+.Hort {
     background-color: #0B2742 !important;
     border-radius: 0 0 18px 18px !important;
     padding: 0 12px 10px 12px !important;
@@ -792,7 +792,8 @@ def fetch_data():
 # ============================================================
 # BANDEAU PRINCIPAL : TITRE + ONGLETS
 # ============================================================
-
+"""
+<div class="Hort">
 with st.container(border=True):
 
    st.markdown(
@@ -814,6 +815,8 @@ with st.container(border=True):
     """,
     unsafe_allow_html=True
 )
+</div class="Hort">
+"""
 
 # ===================================
 # Onlets de navigation
@@ -826,6 +829,7 @@ tab_debit, tab_hauteur, tab_carte, tab_meteo, tab_previsions = st.tabs([
     "🌧️ Précipitations",
     "📈 Prévision de hauteur d’eau"
 ])
+
 # -------------------------
 # TAB : DEBIT D'EAU
 # -------------------------
