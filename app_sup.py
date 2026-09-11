@@ -183,53 +183,17 @@ st.markdown(
         background-color: #193F8C !important;
     }
 
-    /* ============================
-    5. ONGLETS (st.tabs) 
-    ============================*/
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 4px;
-        background-color: #0B2742;
-        padding: 8px 10px 0 10px;
-        border-radius: 14px 14px 0 0;
-    }
-    
-    .stTabs [data-baseweb="tab"] {
-        background-color: #123E5C;
-        color: #C9D8E3;
-        border-radius: 10px 10px 0 0;
-        padding: 10px 18px;
-        font-size: 14px;
-        font-weight: 600;
-        border: none;
-    }
-    
-    .stTabs [data-baseweb="tab"]:hover {
-        background-color: #168AAD;
-        color: #FFFFFF;
-    }
-    
-    .stTabs [aria-selected="true"] {
-        background-color: #00C2D7 !important;
-        color: #0B2742 !important;
-    }
 /* ============================================================
-   6. BANDEAU TITRE + ONGLETS 
+   5. BANDEAU ONGLETS 
    ============================================================ */
 
-/* Fond bleu de la zone contenant les onglets */
-.stTabs {
-    background-color: #0B2742 !important;
-    border-radius: 0 0 18px 18px !important;
-    padding: 0 12px 10px 12px !important;
-    margin-top: 0 !important;
-}
-
-/* Barre des onglets */
+/* Barre contenant uniquement les boutons des onglets */
 .stTabs [data-baseweb="tab-list"] {
     background-color: #0B2742 !important;
-    border-radius: 0 0 14px 14px !important;
-    padding: 8px 5px 0 5px !important;
+    border-radius: 0 0 18px 18px !important;
+    padding: 8px 12px 10px 12px !important;
     gap: 5px !important;
+    margin: 0 !important;
 }
 
 /* Onglet normal */
@@ -255,17 +219,15 @@ st.markdown(
     color: #0B2742 !important;
 }
 
-/* Supprime la ligne automatique de Streamlit */
+/* Ligne automatique de Streamlit */
 .stTabs [data-baseweb="tab-highlight"] {
     background-color: #00C2D7 !important;
 }
 
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+# ==========================
+# 6. Fonction graphiques
+# ==========================
 
-# Fonction graphiques
 def appliquer_theme_plotly(fig):
     fig.update_layout(
         # Couleurs générales
