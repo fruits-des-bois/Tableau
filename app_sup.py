@@ -212,6 +212,53 @@ st.markdown(
         background-color: #00C2D7 !important;
         color: #0B2742 !important;
     }
+/* ============================================================
+   6. BANDEAU TITRE + ONGLETS 
+   ============================================================ */
+
+/* Fond bleu de la zone contenant les onglets */
+.stTabs {
+    background-color: #0B2742 !important;
+    border-radius: 0 0 18px 18px !important;
+    padding: 0 12px 10px 12px !important;
+    margin-top: 0 !important;
+}
+
+/* Barre des onglets */
+.stTabs [data-baseweb="tab-list"] {
+    background-color: #0B2742 !important;
+    border-radius: 0 0 14px 14px !important;
+    padding: 8px 5px 0 5px !important;
+    gap: 5px !important;
+}
+
+/* Onglet normal */
+.stTabs [data-baseweb="tab"] {
+    background-color: #16496A !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 8px 8px 0 0 !important;
+    padding: 10px 18px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+/* Onglet au survol */
+.stTabs [data-baseweb="tab"]:hover {
+    background-color: #168AAD !important;
+    color: #FFFFFF !important;
+}
+
+/* Onglet sélectionné */
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+    background-color: #00C2D7 !important;
+    color: #0B2742 !important;
+}
+
+/* Supprime la ligne automatique de Streamlit */
+.stTabs [data-baseweb="tab-highlight"] {
+    background-color: #00C2D7 !important;
+}
 
     </style>
     """,
