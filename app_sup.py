@@ -43,9 +43,9 @@ st.markdown(
         color: #000000;
     }
 
-/* ============================================================
-   HEADER + ONGLET DU DASHBOARD
-   ============================================================ */
+/* ===========================================
+   HEADER 1.1
+   ======================================== */
 
     .dashboard-header {
         background:#144869 ;
@@ -69,6 +69,36 @@ st.markdown(
         font-size: 14px;
         margin-top: 5px;
         margin-bottom: 15px;
+    }
+/* ==================================
+   ONGLET DU DASHBOARD 1.2
+   ================================ */
+
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 4px;
+        background-color: #0B2742;
+        padding: 8px 10px 0 10px;
+        border-radius: 14px 14px 0 0;
+    }    
+    .stTabs [data-baseweb="tab"] {
+        background-color: #123E5C;
+        color: #C9D8E3;    
+        border-radius: 10px 10px 0 0;    
+        padding: 10px 18px;    
+        font-size: 14px;
+        font-weight: 600;    
+        border: none;
+    }    
+    .stTabs [data-baseweb="tab"]:hover {
+        background-color: #168AAD;
+        color: #FFFFFF;
+    }    
+    .stTabs [aria-selected="true"] {
+        background-color: #00C2D7 !important;
+        color: #0B2742 !important;
+    }
+    .stTabs [data-baseweb="tab-highlight"] {
+        background-color: #00C2D7;
     }
 
     /* =========================
@@ -117,7 +147,6 @@ st.markdown(
         border-color: #00f5d4 !important;
     }
 
-
     /* ===========================
        FENÊTRE DU POPOVER
        ========================= */
@@ -129,7 +158,6 @@ st.markdown(
         color: #222424 !important;
     }
 
-
     /* Contenu texte */
     div[data-testid="stPopoverBody"] p,
     div[data-testid="stPopoverBody"] li,
@@ -138,7 +166,6 @@ st.markdown(
         background-color: #2093C7 !important;
     }
 
-
     /* Bordure et arrondi */
     div[data-testid="stPopoverBody"] {
         border: 1px solid #48cae4 !important;
@@ -146,7 +173,6 @@ st.markdown(
         padding: 12px !important;
     }
     
-
     /* ============================
     4. DATAFRAMES INTERACTIFS (st.dataframe) 
     ============================*/
@@ -172,7 +198,6 @@ st.markdown(
         color: #00f5d4 !important;
         border-bottom: 3px solid #00f5d4 !important;
     }
-
 
     </style>
     """,
@@ -720,6 +745,20 @@ def fetch_data():
         "Date et heure": df_future_enhanced["Date d'Observation"],
         "Hauteur d'eau prévue (mm)": predictions
     })
+
+st.markdown("""
+<div class="dashboard-header">
+
+    <div class="dashboard-title">
+        🌊 Dashboard hydrologique de Beauvais
+    </div>
+
+    <div class="dashboard-subtitle">
+        Suivi de la hauteur d'eau, du débit, des précipitations et des prévisions
+    </div>
+
+</div>
+""", unsafe_allow_html=True)
 
 # =========================
 # ONGLETS DE NAVIGATION
