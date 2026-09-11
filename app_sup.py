@@ -96,8 +96,8 @@ st.markdown(
     div[data-testid="stPopoverBody"],
     div[data-testid="stPopoverBody"] > div,
     div[data-testid="stPopoverBody"] > div > div {
-        background-color: #2093C7 !important;
-        color: #222424 !important;
+        background-color: #FFFFFF !important;
+        color: #000000!important;
     }
 
 
@@ -105,8 +105,8 @@ st.markdown(
     div[data-testid="stPopoverBody"] p,
     div[data-testid="stPopoverBody"] li,
     div[data-testid="stPopoverBody"] span {
-        color: #222424 !important;
-        background-color: #2093C7 !important;
+        color: #000000 !important;
+        background-color: #FFFFFF !important;
     }
 
 
