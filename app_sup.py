@@ -40,7 +40,7 @@ st.markdown(
 
     .stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6, 
     .stApp span, .stApp label, .stApp div {
-        color: #FFFFFF;
+        color: #000000;
     }
 
 /* ============================================================
