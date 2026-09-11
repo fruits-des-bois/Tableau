@@ -239,6 +239,22 @@ st.markdown(
 
     background-color: transparent !important;
     }
+
+    /* ============================================================
+   FOND BLEU DERRIÈRE LA BARRE DES ONGLETS
+   ============================================================ */
+
+    .stTabs::before {  
+        content: "" !important;
+        position: absolute !important;    
+        top: 0 !important;    
+        left: 0 !important;    
+        right: 0 !important;   
+        height: 48px !important;   
+        background-color: #0B2742 !important;   
+        z-index: -1 !important;
+    }
+
     </style>
     """,
     unsafe_allow_html=True
