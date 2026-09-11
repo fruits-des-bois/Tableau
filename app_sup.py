@@ -234,7 +234,23 @@ def appliquer_theme_plotly(fig):
 
     return fig
 
-st.title("📊 Dashboard hydrologie Beauvais")
+# ==============
+# Titre
+# ==============
+
+st.markdown("""
+<div class="dashboard-header">
+
+    <div class="dashboard-title">
+        🌊 Dashboard hydrologique de Beauvais
+    </div>
+
+    <div class="dashboard-subtitle">
+        Suivi de la hauteur d'eau, du débit, des précipitations et des prévisions
+    </div>
+
+</div>
+""", unsafe_allow_html=True)
 
 # ------------------------
 # Début du code Streamlit
@@ -711,24 +727,6 @@ def fetch_data():
         "Date et heure": df_future_enhanced["Date d'Observation"],
         "Hauteur d'eau prévue (mm)": predictions
     })
-# ==============
-# Titre
-# ==============
-
-st.markdown("""
-<div class="dashboard-header">
-
-    <div class="dashboard-title">
-        🌊 Dashboard hydrologique de Beauvais
-    </div>
-
-    <div class="dashboard-subtitle">
-        Suivi de la hauteur d'eau, du débit, des précipitations et des prévisions
-    </div>
-
-</div>
-""", unsafe_allow_html=True)
-
 
 # =========================
 # ONGLETS DE NAVIGATION
