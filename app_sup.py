@@ -129,165 +129,117 @@ st.markdown(
     }
     
 /* ============================================================
-   BANDEAU TITRE + PARTIE HAUTE DES ONGLETS
+   BANDEAU : TITRE + ONGLETS
    ============================================================ */
 
-    /* ---------- TITRE ---------- */
-    
-    .dashboard-header {
-        background-color: #0B2742 !important;
-        padding: 22px 30px 18px 30px !important;
-        margin: 0 0 0 0 !important;
-        border-radius: 18px 18px 0 0 !important;
-        border: none !important;
-        box-shadow: none !important;
-    }
-    
-    .dashboard-title {
-        color: #FFFFFF !important;
-        font-size: 30px !important;
-        font-weight: 700 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    
-    .dashboard-subtitle {
-        color: #C9D8E3 !important;
-        font-size: 14px !important;
-        margin: 5px 0 0 0 !important;
-    }
-    
-    
-    /* ---------- CONTENEUR DES ONGLETS ---------- */
-    
-    /*
-       IMPORTANT :
-       On ne met PAS de background sur .stTabs.
-       Sinon le bleu descendrait autour des graphiques/tableaux.
-    */
-    
-    .stTabs {
-        margin-top: 0 !important;
-    }
-    
-    
-    /* ---------- BARRE SUPÉRIEURE DES ONGLETS ---------- */
-    
-    .stTabs > div:first-child {
-        background-color: #0B2742 !important;
-        padding: 8px 22px 12px 22px !important;
-        margin: 0 !important;
-        border-radius: 0 0 18px 18px !important;
-    }
-    
-    
-    /* ---------- LISTE DES ONGLETS ---------- */
-    
-    .stTabs [data-baseweb="tab-list"] {
-        background-color: transparent !important;
-        gap: 5px !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-    
-    
-    /* ---------- ONGLET NORMAL ---------- */
-    
-    .stTabs [data-baseweb="tab"] {
-        background-color: #16496A !important;
-        color: #FFFFFF !important;
-        border: none !important;
-        border-radius: 8px 8px 0 0 !important;
-        padding: 10px 18px !important;
-        font-size: 14px !important;
-        font-weight: 600 !important;
-    }
-    
-    
-    /* ---------- SURVOL ---------- */
-    
-    .stTabs [data-baseweb="tab"]:hover {
-        background-color: #168AAD !important;
-        color: #FFFFFF !important;
-    }
-    
-    
-    /* ---------- ONGLET ACTIF ---------- */
-    
-    .stTabs [data-baseweb="tab"][aria-selected="true"] {
-        background-color: #00C2D7 !important;
-        color: #0B2742 !important;
-    }
-    
-    
-    /* ---------- LIGNE SOUS L'ONGLET ---------- */
-    
-    .stTabs [data-baseweb="tab-highlight"] {
-        background-color: #00C2D7 !important;
-    }
-    
-    
-    /* ---------- CONTENU DES ONGLETS ---------- */
-    
-    /*
-       Le contenu reste sur le fond gris de la page.
-       Il n'est donc PAS inclus dans le bandeau.
-    */
-    
-    .stTabs > div:nth-child(2) {
-        background-color: transparent !important;
-    }
-    
-    
-    /* Liste des onglets */
-    .stTabs [data-baseweb="tab-list"] {
-        background-color: transparent !important;
-        gap: 5px !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-    
-    /* Onglet normal */
-    .stTabs [data-baseweb="tab"] {
-        background-color: #16496A !important;
-        color: #FFFFFF !important;
-        border: none !important;
-        border-radius: 8px 8px 0 0 !important;
-        padding: 10px 18px !important;
-        font-size: 14px !important;
-        font-weight: 600 !important;
-    }
-    
-    /* Survol */
-    .stTabs [data-baseweb="tab"]:hover {
-        background-color: #168AAD !important;
-        color: #FFFFFF !important;
-    }
-    
-    /* Onglet actif */
-    .stTabs [data-baseweb="tab"][aria-selected="true"] {
-        background-color: #00C2D7 !important;
-        color: #0B2742 !important;
-    }
-    
-    /* Suppression de la ligne native */
-    .stTabs [data-baseweb="tab-highlight"] {
-        background-color: #00C2D7 !important;
-    }
-    
-    
-    /* ============================================================
-       CONTENU DES ONGLETS : FOND NORMAL
-       ============================================================ */
-    
-    /* On évite que le contenu soit inclus visuellement dans le bandeau */
-    .stTabs > div:nth-child(2) {
-        background-color: transparent !important;
-    }
+/* -------------------------
+   TITRE
+   ------------------------- */
 
-    </style>
-    """,
-    unsafe_allow_html=True
+.dashboard-header {
+    background-color: #0B2742 !important;
+    padding: 22px 30px 18px 30px !important;
+    margin: 0 !important;
+    border-radius: 18px 18px 0 0 !important;
+    border: none !important;
+}
+
+.dashboard-title {
+    color: #FFFFFF !important;
+    font-size: 30px !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.dashboard-subtitle {
+    color: #C9D8E3 !important;
+    font-size: 14px !important;
+    margin: 5px 0 0 0 !important;
+}
+
+
+/* ============================================================
+   PARTIE HAUTE DES ONGLETS
+   ============================================================ */
+
+/*
+   IMPORTANT :
+   On cible uniquement le premier enfant de stTabs,
+   c'est-à-dire la barre des onglets.
+*/
+
+.stTabs > div:first-child {
+    background-color: #0B2742 !important;
+    padding: 8px 30px 14px 30px !important;
+    margin: 0 !important;
+    border-radius: 0 0 18px 18px !important;
+}
+
+
+/* Liste contenant les boutons des onglets */
+
+.stTabs [data-baseweb="tab-list"] {
+    background-color: transparent !important;
+    gap: 6px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+
+/* ============================================================
+   BOUTONS DES ONGLETS
+   ============================================================ */
+
+.stTabs [data-baseweb="tab"] {
+    background-color: #16496A !important;
+    color: #FFFFFF !important;
+
+    border: none !important;
+    border-radius: 8px 8px 0 0 !important;
+
+    padding: 11px 20px !important;
+
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+
+/* Onglet au survol */
+
+.stTabs [data-baseweb="tab"]:hover {
+    background-color: #168AAD !important;
+    color: #FFFFFF !important;
+}
+
+
+/* Onglet sélectionné */
+
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+    background-color: #00C2D7 !important;
+    color: #0B2742 !important;
+}
+
+
+/* Ligne native sous l'onglet */
+
+.stTabs [data-baseweb="tab-highlight"] {
+    background-color: #00C2D7 !important;
+}
+
+
+/* ============================================================
+   CONTENU DES ONGLETS
+   ============================================================ */
+
+/*
+   Le deuxième enfant correspond au contenu.
+   Il reste sur le fond gris de la page.
+*/
+
+.stTabs > div:nth-child(2) {
+    background-color: #F2F2F2 !important;
+}
 )
 
 def appliquer_theme_plotly(fig):
