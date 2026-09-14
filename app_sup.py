@@ -18,8 +18,7 @@ import numpy as np
 # CONFIGURATION DE LA PAGE
 # =========================
 st.set_page_config(
-    page_title="Dashboard hydrologie de Beauvais",
-    page_icon="🌊",
+    page_title="Suivi du Thérain à Beauvais",
     layout="wide",
     initial_sidebar_state="expanded",
 )
