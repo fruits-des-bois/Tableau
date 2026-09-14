@@ -854,10 +854,10 @@ def fetch_data():
 st.markdown("""
 <div class="dashboard-header">
     <div class="dashboard-title">
-        🌊 Dashboard hydrologie de Beauvais
+         Suivi du Thérain à Beauvais
     </div>
     <div class="dashboard-subtitle">
-        Suivi de la hauteur d'eau, du débit, des précipitations et des prévisions
+        Suivi de la hauteur d'eau, du débit, des précipitations et des prévisions pluviométriques à Beauvais
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -906,7 +906,7 @@ with tab_debit:
         st.markdown('**Détails - 5 dernières mesures**')
         st.write(
             "Ce tableau présente les données de débit mesurées au niveau de la"
-            " station hydrométrique de Beauvais, grâce à l'API Hub'Eau. Les 5"
+            " station hydrométrique de Beauvais, grâce à l'API Hub'Eau. Ces données sont effectuées sur le Thérain, le principal cours d'eau de la ville de Beauvais. Les 5"
             ' dernières mesures de débit sont transmises avec un retard de 2 à'
             ' 3 heures.\n Chaque mesure est espacée de dix minutes l\'une de'
             ' l\'autre.'
@@ -958,7 +958,7 @@ with tab_hauteur:
         st.markdown('**Détails - 5 dernières mesures**')
         st.write(
             "Ce tableau présente les données de hauteur d'eau  mesurées au"
-            " niveau de la station hydrométrique de Beauvais. Les 5 dernières"
+            " niveau de la station hydrométrique de Beauvais. Ces données sont effectuées sur le Thérain, le principal cours d'eau de la ville de Beauvais. Les 5 dernières"
             " hauteurs d'eau sont transmises avec un retard de 2 à 3 heures.\n"
             " Chaque mesure est espacée de dix minutes l'une de l'autre."
         )
@@ -1092,9 +1092,10 @@ with tab_previsions:
     with st.popover('ℹ️'):
       st.markdown('**Fonctionnement du modèle**')
       st.write("""
-            Ce graphique présente plusieurs données :
+            Ce graphique présente principalement une donnée :
 
-            **Hauteurs d'eau** en fonction du temps, sur une durée de **trois jours**.
+            Les **Hauteurs d'eau** du Thérain au niveau de la station hydrométrique de Beauvais, en fonction du temps et sur pour une durée de **trois jours**.
+            Le Thérain est le principal cours d'eau de la ville de Beauvais.
             
             Le modèle requiert plusieurs jeux de données : 
             1. **Données hydrologiques :** Hauteurs d'eau et débits historiques, et ceux mesurés en temps réel au niveau de la station hydrométrique de Beauvais. Les données hydrologiques mesurées en temps réel sont récupérées grâce à une API de la plateforme Hub'Eau.
