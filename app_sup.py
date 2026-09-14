@@ -43,26 +43,55 @@ st.markdown(
         color: #000000;
     }
 
-    /* =========================
+   /* =========================
        2. BOUTONS (st.button)
        ====================== */
-    
+    /* =========================
+   BOUTONS (st.button)
+   ========================= */
+
     div.stButton > button {
         background-color: #368ED1 !important;
         color: #FFFFFF !important;
-        border: 1px solid #3a506b !important;
+        border: 2px solid #FFFFFF !important;
+        outline: none !important;
+        box-shadow: none !important;
         border-radius: 8px !important;
         padding: 8px 16px !important;
         font-weight: 600 !important;
         transition: all 0.3s ease !important;
-        width: 100%;
+        width: 100% !important;
     }
 
+    /* Texte du bouton */
+    div.stButton > button p,
+    div.stButton > button span {
+        color: #FFFFFF !important;
+        font-weight: 600 !important;
+    }
+
+    /* Survol */
     div.stButton > button:hover {
         background-color: #FFFFFF !important;
-        color: #368ED1!important;
-        border-color: #00f5d4 !important;
-        box-shadow: 0 0 10px rgba(0, 245, 212, 0.3) !important;
+        color: #368ED1 !important;
+        font-weight: 600 !important;
+        border: 2px solid #368ED1 !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    div.stButton > button:hover p,
+    div.stButton > button:hover span {
+        color: #368ED1 !important;
+        font-weight: 600 !important;
+    }
+
+    /* Focus / clic */
+    div.stButton > button:focus,
+    div.stButton > button:focus-visible,
+    div.stButton > button:active {
+        outline: none !important;
+        box-shadow: none !important;
     }
 
 /* ==============================
