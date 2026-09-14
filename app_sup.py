@@ -1018,7 +1018,8 @@ with tab_meteo:
         st.markdown('**Détails - Historique**')
         st.write(
             'Ce graphique présente les pluies historiques survenues jusqu\'à 4'
-            ' jours plus tôt, au niveau de la ville de Beauvais.'
+            " jours plus tôt, au niveau de la ville de Beauvais.Ces données sont transmises grâce à l'API open-météo. "
+            'Ces données proviennent de la station météorologique de Beauvais-Tillé.'
         )
 
   if st.session_state.vue_pluie == 'horaire':
